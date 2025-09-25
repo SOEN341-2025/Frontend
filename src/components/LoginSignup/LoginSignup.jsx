@@ -1,10 +1,10 @@
 import React from 'react'
-import './login.css'
+import './LoginSignup.css'
 import email from '../assets/email.png'
 import password from '../assets/password.png'
 import User_Login from '../assets/User_Login.png'
 
-export const Login = () => {
+export const LoginSignup = () => {
   return (
     <div className="container">
         <div className="header">
