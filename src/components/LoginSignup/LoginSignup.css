@@ -115,9 +115,19 @@ body{
  color: #ffffff;
  font-weight: 500;
  margin-top:20px;
-
+ cursor: pointer;
 }
 
+.gray {
+    background-color: #eaeaea;
+    color: #676767;
+    cursor: default;
+    
+}
+.gray:hover {
+    background-color: #5e5e5e;
+    color:#eaeaea;
+}
 .header-nav {
     display: flex;
     gap: 2em;
