@@ -1,16 +1,19 @@
-import { useState } from 'react'
-import './App.css'
+import Header from './Header.jsx'
+import Footer from './Footer.jsx'
+import { LoginSignup } from './components/loginsignup/LoginSignup.jsx'
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
+  
+  return (  
     <>
-      <p>
-        Hello World
-      </p>
+      <LoginSignup/>
+      <Header/>
+      <Footer/>
+     
     </>
-  )
+  );
+
 }
 
 export default App
