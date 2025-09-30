@@ -1,14 +1,16 @@
+import './App.css'
 import Header from './Header.jsx'
 import Footer from './Footer.jsx'
-import { LoginSignup } from './components/loginsignup/LoginSignup.jsx'
+import { LoginSignup } from './pages/loginsignup/LoginSignup.jsx'
+
 import React from 'react'
 
 function App() {
   
   return (  
     <>
-      <LoginSignup/>
       <Header/>
+      <LoginSignup/>
       <Footer/>
      
     </>
@@ -17,3 +19,4 @@ function App() {
 }
 
 export default App
+

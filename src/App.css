@@ -4,3 +4,10 @@
   padding: 2rem;
   text-align: center;
 }
+
+body {
+  
+      background: linear-gradient(#1584e4, #e83186);
+    height: 100%;
+      color: #000000;
+}

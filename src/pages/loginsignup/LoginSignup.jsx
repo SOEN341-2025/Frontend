@@ -1,8 +1,8 @@
 import React from 'react'
 import './LoginSignup.css'
-import email from '../assets/email.png'
-import password from '../assets/password.png'
-import User_Login from '../assets/User_Login.png'
+import email from '../assets/LoginSignup/email.png'
+import password from '../assets/LoginSignup/password.png'
+import User_Login from '../assets/LoginSignup/User_Login.png'
 
 export const LoginSignup = () => 
     {
