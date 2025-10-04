@@ -51,3 +51,5 @@ export const LoginSignup = () =>
 
   )
 }
+
+export default LoginSignup;
