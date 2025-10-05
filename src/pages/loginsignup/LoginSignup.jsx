@@ -1,10 +1,10 @@
 import React from 'react'
 import './LoginSignup.css'
-import email from '../assets/LoginSignup/email.png'
-import password from '../assets/LoginSignup/password.png'
-import User_Login from '../assets/LoginSignup/User_Login.png'
+import email from '../../assets/LoginSignup/email.png'
+import password from '../../assets/LoginSignup/password.png'
+import User_Login from '../../assets/LoginSignup/User_Login.png'
 
-export const LoginSignup = () => 
+export default function LoginSignup() 
     {
          const [action, setAction] = React.useState("Log In"); // 
   return (
