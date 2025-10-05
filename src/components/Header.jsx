@@ -7,6 +7,7 @@ function Header() {
                 <a href="#">About</a>
                 <a href="#">Services</a>
                 <a href="#">Contact</a>
+                <a href="Add_event_page">Add an event</a>
             </nav>
             <div className="header-bar"></div>
         </header>

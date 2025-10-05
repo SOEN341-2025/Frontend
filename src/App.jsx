@@ -1,17 +1,20 @@
-import './App.css'
-import Header from './Header.jsx'
-import Footer from './Footer.jsx'
-import { LoginSignup } from './pages/loginsignup/LoginSignup.jsx'
-
+import Header from './components/Header.jsx'
+import Footer from './components/Footer.jsx'
 import React from 'react'
+import {Routes, Route} from "react-router-dom"
+import Add_event_page from './pages/addEventPage/addEventPage';
+import Home from "./pages/home/Home";
 
 function App() {
   
   return (  
     <>
-      <Header/>
-      <LoginSignup/>
-      <Footer/>
+      <main className = "main-content">
+        <Routes>
+          <Route path="/" element={<Home/>}/>
+          <Route path="/Add_event_page" element={<Add_event_page />}/>
+        </Routes>
+      </main>
      
     </>
   );
@@ -19,4 +22,3 @@ function App() {
 }
 
 export default App
-
