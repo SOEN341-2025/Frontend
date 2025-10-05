@@ -3,10 +3,22 @@ import './LoginSignup.css'
 import email from '../../assets/LoginSignup/email.png'
 import password from '../../assets/LoginSignup/password.png'
 import User_Login from '../../assets/LoginSignup/User_Login.png'
+import { useState } from 'react'
 
-export default function LoginSignup() 
-    {
-         const [action, setAction] = React.useState("Log In"); // 
+export default function LoginSignup() {
+    const [action, setAction] = React.useState("Log In"); // 
+    const [formData, setFormData] = useState({ email: "", password: ""});
+
+    const inputHandle = (event) => {
+
+        console.log(formData);
+        const { name, value } = event.target;
+        setFormData((prevState) => ({
+            ...prevState,
+            [name]: value
+        }));
+    };
+        
   return (
     <div className="container">
         <div className="header">
@@ -25,11 +37,11 @@ export default function LoginSignup()
             
             <div className="input">
                 <img src={email} alt= "" className="icon"/>
-                <input type="email" placeholder="Email"/>
+                <input type="email" name='email' placeholder="Email" value={formData.email}  onChange={inputHandle}/>
             </div>
             <div className="input">
                 <img src={password} alt= ""  className="icon"/>
-                <input type="password" placeholder="Password"/>
+                <input type="password" name='password' placeholder="Password" value={formData.password}  onChange={inputHandle}/>
             </div>
          </div>
          {action === "Sign Up" ? <div></div>: 
