@@ -1,14 +1,19 @@
 import React from "react";
 import "../../App.css";
+import "./addEventPage.css"
+import AddEventForm from "../../components/AddEventForm";
+import Header from "../../components/Header";
 
-function Add_event_page(){
+export default function AddEventPage(){
 
-    return(
-        <div className="events">
-            <h3>Add Events</h3>
-            <p>Start adding events by entering the events name, date, etc.</p>
-        </div>
-    );
+    return (
+
+        <>
+        <Header/>
+        <AddEventForm />
+
+        </>
+    )
+
 }
 
-export default Add_event_page;
