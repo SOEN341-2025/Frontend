@@ -10,7 +10,7 @@ export default function LoginSignup()
   return (
     <div className="container">
         <div className="header">
-             <div className="text">{action}</div>
+           <div className={`text ${action === "Log In" ? "login-text" : ""}`}>{action}</div>
                  <div className="underline"></div>
         </div>
         <div className="inputs">
