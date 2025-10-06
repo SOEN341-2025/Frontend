@@ -1,0 +1,49 @@
+.headerNav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+  margin-top: 10px;
+  margin-bottom: 8px;
+}
+
+.navLink {
+  position: relative;
+  border: transparent;
+  border-radius: 7px;
+  padding: 2px 5px;
+  font-size: 15px;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+  text-transform: uppercase;
+
+}
+
+/* hover bright glow */
+.navLink:hover {
+  border-color: #5c41bd;
+  box-shadow: 0 0 10px #ffae42, 0 0 15px #ffb343;
+  color: #1c0160;
+}
+
+/* active full glow */
+.active {
+  background-color: #1c0160;
+  color: #f2e9ff;
+  border-color: #1c0160;
+  box-shadow:
+    0 0 10px #1c0160,
+    0 0 20px #1c0160,
+    0 0 50px #1c0160;
+  transition: all 0.2s ease-in-out;
+}
+
+.headerBar {
+  width: 350px;
+  height: 3px;
+  background: #1c0160;
+  border-radius: 3px;
+  margin: 0 auto 8px auto;
+}
