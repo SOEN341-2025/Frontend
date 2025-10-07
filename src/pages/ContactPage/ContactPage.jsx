@@ -51,7 +51,7 @@ function Contact_Page() {
       <nav aria-label="Social links" className="small">
         <a href="https://www.instagram.com/concordiauniversity/" target="_blank" rel="noreferrer"><FaInstagram classname ="icon"/>Instagram</a>
         {" · "}
-        <a href="https://x.com/yourhandle" target="_blank" rel="noreferrer">X</a>
+        <a href="https://x.com/concordia" target="_blank" rel="noreferrer">X</a>
         {" · "}
         <a href="https://www.linkedin.com/school/concordia-university/posts/?feedView=all" target="_blank" rel="noreferrer"><FaLinkedin classname = "icon" />LinkedIn</a>
       </nav>
@@ -59,6 +59,7 @@ function Contact_Page() {
       
       <p className="small">
         We respect your privacy and only use your info to help with your request.{" "}
+       
        
       </p>
     </section>
