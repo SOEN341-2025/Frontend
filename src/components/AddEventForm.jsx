@@ -16,8 +16,8 @@ export default function AddEventForm(){
       date : '',
       location : '',
       time : '',
-      typeOfEvent: ''
-
+      typeOfEvent: '',
+      image: ''
     }
   );
 
@@ -36,61 +36,70 @@ export default function AddEventForm(){
     
     <form>
       <h3 style={{textAlign : "center"}}>Please enter event details</h3>
-      <label>title: 
-        <input type="text" id ="title" name ="title" value ={eventForm.name} onChange={editEventForm} placeholder='Hackathon 2025'/> 
+
+
+      <label>Title: <br/>
+        <input className='inputStyle' type="text" id ="title" name ="title" value ={eventForm.name} onChange={editEventForm} placeholder='Hackathon 2025'/> 
       </label>
 
       <br/>
 
-      <label>description: 
-        <textarea type="text" id="description" name='description' value= {eventForm.name} onChange = {editEventForm} placeholder='A beginner friendly programming competition'/>
+      <label>Description: <br/>
+        <textarea className='inputStyle' type="text" id="description" name='description' value= {eventForm.name} onChange = {editEventForm} placeholder='A beginner friendly programming competition'/>
       </label>
 
       <br/>
 
-      <label>date:
-        <input type="text" id="description" name='description' value= {eventForm.name} onChange = {editEventForm} placeholder='day/month/year'/>
+      <label>Upload an Image: <br/>
+        <input type='file' id="image" name="image" value={eventForm.name} accept='image/*' onChange={editEventForm}/>
+      </label>
+
+      <br/>
+
+      <label>Date:<br/>
+        <input className='inputStyle' type="text" id="description" name='description' value= {eventForm.name} onChange = {editEventForm} placeholder='day/month/year'/>
 
       </label>                 
 
       <br/>
       
 
-      <label>time: 
-        <input type="text" id="description" name='description' value= {eventForm.name} onChange = {editEventForm} placeholder='00:00'/>
+      <label>Time: <br/>
+        <input className='inputStyle' type="text" id="description" name='description' value= {eventForm.name} onChange = {editEventForm} placeholder='00:00'/>
 
       </label>
 
       <br/>
 
-      <label>location: 
-        <input type="text" id="location" name='location' value= {eventForm.name} onChange = {editEventForm} placeholder='1455 Blvd. De Maisonneuve Ouest, Montreal, Quebec H3G 1M8'/>
+      <label>Location: <br/>
+        <input className='inputStyle' type="text" id="location" name='location' value= {eventForm.name} onChange = {editEventForm} placeholder='1455 Blvd. De Maisonneuve Ouest, Montreal, Quebec H3G 1M8'/>
 
       </label>
 
       <br/>
 
-      <label>venue's capacity: 
-        <input type="text" id="capacity" name='capacity' value= {eventForm.name} onChange = {editEventForm} placeholder='1000'/>
+      <label>Venue's capacity: <br/>
+        <input className='inputStyle' type="text" id="capacity" name='capacity' value= {eventForm.name} onChange = {editEventForm} placeholder='1000'/>
 
       </label>
 
       <br/>
-
-      <label>Type of event:
-        <select id="typeOfEvent" name="typeOfEvent" value ={eventForm.typeOfEvent} onChange = {editEventForm}>
-          <option value="paid">Paid</option>
-          <option value="free">Free</option>
-          
-        </select>
-
+      <label >
+      
+        {"Paid "}
+        <input type='radio'name='typeOfEvent' id='paidEvent' value="paid" onClick={editEventForm}/>
+        {" "}
+        {"Free "}
+        <input type='radio'name='typeOfEvent' id='paidEvent' value="free" onClick={editEventForm}/>
+        
       </label>
-
+      
+      {/* This only appears if the user selects the event to be a paid event in the form*/}
       <div>
           {eventForm.typeOfEvent === "paid"? (
 
-            <label> ticket price:
-              <input type='text' id='price' name='price' value ={eventForm.price} onChange = {editEventForm} placeholder='50'/>
+            <label> Ticket price:<br/>
+              <input className='inputStyle' type='text' id='price' name='price' value ={eventForm.price} onChange = {editEventForm} placeholder='50'/>
             </label>
 
           ):(
