@@ -7,6 +7,7 @@ import Home from "./pages/home/home";
 import Layout from "./components/Layout";
 import Contact_Page from './pages/ContactPage/ContactPage';
 import Ticket from './pages/ticket/Ticket';
+import OrganiserCalendar from './components/OrganiserCalendar';
 
 
 
@@ -15,7 +16,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="Add_event_page" element={<Add_event_page />} />
+        <Route path="Add_event_page" element={<OrganiserCalendar />} />
         {/*placerholders for now */}
         <Route path="about" element={<h2>About Page</h2>} />
         <Route path="services" element={<h2>Services Page</h2>} />

@@ -1,0 +1,47 @@
+/* Calendar container */
+.my-calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  max-width: 600px;
+  margin: auto;
+  padding: 10px;
+  border: 2px solid #304acbff;
+  border-radius: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Tile styling */
+.my-calendar__tile {
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+  cursor: pointer;
+  background: #f0f0f0;
+  transition: background 0.2s;
+}
+
+.my-calendar__tile:hover {
+  background: #e0e0e0;
+}
+
+/* Selected day */
+.my-calendar__tile--selected {
+  background: #421c1cff;
+  color: white;
+}
+
+/* Current day */
+.my-calendar__tile--today {
+  border: 2px solid #421c1cff;
+}
+
+/* Event dot */
+.event-dot {
+  color: red;
+  font-weight: bold;
+  margin-top: 4px;
+}
