@@ -8,6 +8,7 @@ import { useState } from 'react'
 export default function LoginSignup() {
     const [action, setAction] = React.useState("Log In"); // 
     const [formData, setFormData] = useState({ email: "", password: ""});
+    //TO DO: Finish Sign Up Input Handle 
 
     const inputHandle = (event) => {
 
@@ -18,6 +19,51 @@ export default function LoginSignup() {
             [name]: value
         }));
     };
+
+       // Sign up (create user)
+    const handleSignUp = async () => {
+        setMessage("");
+        try {
+            const res = await fetch('http://localhost:3000/api/user/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name: formData.name, email: formData.email, password: formData.password })
+            });
+            const data = await res.json();
+            if (res.ok) setMessage("Signup successful — please log in");
+            else setMessage(data.error || data.message || "Signup failed");
+        } catch {
+            setMessage("Network error");
+        }
+    };
+
+
+
+// NEW: call backend login and save JWT
+    const handleLogin = async () => {
+        setMessage("")
+        try {
+            const res = await fetch('http://localhost:3000/api/user/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email: formData.email, password: formData.password })
+            });
+            const data = await res.json();
+            if (res.ok && data.token) {
+                //NOT SURE How this should be stored...
+                localStorage.setItem('jwtToken', data.token);
+                setMessage("Login successful");
+                // TODO: redirect or update auth context / state
+            } else {
+                setMessage(data.error || data.message || "Login failed");
+            }
+        } catch (err) {
+            setMessage("Network error");
+        }
+    }
+
+
+
         
   return (
     <div className="container">
