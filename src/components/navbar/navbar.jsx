@@ -1,7 +1,32 @@
 import { NavLink } from "react-router-dom";
 import styles from "./navbar.module.css";
+import useAuth from "../../hooks/useAuth";
+
 
 export default function Navbar() { 
+
+  const { userState } = useAuth()
+  const { user, logout } = userState();
+
+
+  const login_logout = user.token == '' ? <>
+    <NavLink to="/login" className={({ isActive }) =>
+      isActive ? `${styles.navLink} ${styles.active}` : styles.navLink}>
+      Login
+    </NavLink>
+  </> :
+  <>
+    <button className={({ isActive }) => 
+      isActive ? `${styles.navLink} ${styles.active}` : styles.navLink
+      }
+      
+      onClick={logout}
+      
+    >
+      Logout
+    </button>
+  </>
+
   return (
     <header>
       <nav className={styles.headerNav}>
@@ -35,10 +60,8 @@ export default function Navbar() {
           Tickets
         </NavLink>
 
-        <NavLink to="/login" className={({ isActive }) =>
-            isActive ? `${styles.navLink} ${styles.active}` : styles.navLink}>
-          Login
-        </NavLink>
+
+        {login_logout}
         
       </nav>
       <div className={styles.headerBar}></div>
