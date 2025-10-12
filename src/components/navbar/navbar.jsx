@@ -29,6 +29,17 @@ export default function Navbar() {
             isActive ? `${styles.navLink} ${styles.active}` : styles.navLink}>
           Add an event
         </NavLink>
+
+        <NavLink to="/ticket" className={({ isActive }) =>
+            isActive ? `${styles.navLink} ${styles.active}` : styles.navLink}>
+          Tickets
+        </NavLink>
+
+        <NavLink to="/login" className={({ isActive }) =>
+            isActive ? `${styles.navLink} ${styles.active}` : styles.navLink}>
+          Login
+        </NavLink>
+        
       </nav>
       <div className={styles.headerBar}></div>
     </header>
