@@ -2,6 +2,7 @@
 import React from 'react'
 import {Routes, Route} from "react-router-dom"
 import LoginPage from './pages/loginsignup/LoginSignup';
+import useAuth from './hooks/useAuth';
 import Add_event_page from './pages/addEventPage/addEventPage';
 import Home from "./pages/home/home";
 import Layout from "./components/Layout";
@@ -11,8 +12,12 @@ import Ticket from './pages/ticket/Ticket';
 
 
 function App() {
+
+  const { AuthProvider } = useAuth()
+
    return (
-    <Routes>
+    <AuthProvider>
+      <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="Add_event_page" element={<Add_event_page />} />
@@ -24,6 +29,7 @@ function App() {
         <Route path="login" element={<LoginPage/>} />
       </Route>
     </Routes>
+    </AuthProvider>
   );
 }
 
