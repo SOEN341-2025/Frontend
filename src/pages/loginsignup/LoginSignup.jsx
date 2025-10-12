@@ -4,8 +4,9 @@ import email from '../../assets/LoginSignup/email.png'
 import password from '../../assets/LoginSignup/password.png'
 import User_Login from '../../assets/LoginSignup/User_Login.png'
 import { useState } from 'react'
+import Header from '../../components/Header'
 
-export default function LoginSignup() {
+function LoginSignup() {
     const [action, setAction] = React.useState("Log In"); // 
     const [formData, setFormData] = useState({ email: "", password: ""});
     //TO DO: Finish Sign Up Input Handle 
@@ -108,4 +109,17 @@ export default function LoginSignup() {
     </div>
 
   )
+}
+
+export default function LoginPage(){
+
+    return (
+
+        <>
+        <Header/>
+        <LoginSignup />
+
+        </>
+    )
+
 }
