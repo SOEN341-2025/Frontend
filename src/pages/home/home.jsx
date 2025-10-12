@@ -1,5 +1,4 @@
 import React from "react";
-import LoginSignup from "../loginsignup/LoginSignup";
 import Header from "../../components/Header";
 
 function Home(){
@@ -8,7 +7,6 @@ function Home(){
 
         <>
         <Header/>
-        <LoginSignup />
 
         </>
     )
