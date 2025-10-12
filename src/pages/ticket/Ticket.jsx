@@ -3,6 +3,7 @@ import Header from "../../components/Header";
 import {QRCodeSVG} from "qrcode.react"; 
 import {useState} from 'react'; 
 import "./Ticket.css"; 
+import "../addEventPage/addEventPage.css";
 
 function Ticket(){
 
@@ -25,25 +26,28 @@ function Ticket(){
     return (
         <>
         <Header/>
+        <div className='urlStyle ticketContainer'>
+            <label className='ticketLabel' >Enter URL:
+                
+                <input className="ticketInput" type="text" id="url" name="url" value ={qrCodeUrl.url} onChange={editQrCode} placeholder="http://google.com"/>
+            </label>
 
-        <label className='something'>Enter URL:
-            <input type="text" id="url" name="url" value ={qrCodeUrl.url} onChange={editQrCode} placeholder="http://google.com"/>
-        </label>
+            <br/>
+                
+            {/* This only appears if the user enters the url of the website they want to visit*/}
+            <div className="qrContainer">
+                {qrCodeUrl.url != ""? (
 
-        <br/>
-              
-        {/* This only appears if the user enters the url of the website they want to visit*/}
-        <div>
-            {qrCodeUrl.url != ""? (
+                    <QRCodeSVG  value = {qrCodeUrl.url} size="256" className="qrCodeBox"/>
 
-                <QRCodeSVG  value = {qrCodeUrl.url} size="256"/>
+                ):(
+                    <p className="noQrText"></p>
+                )
 
-            ):(
-                <p></p>
-            )
-
-            }
+                }
+            </div>
         </div>
+
 
         </>
 
