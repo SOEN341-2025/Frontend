@@ -1,36 +1,18 @@
-import React from "react";
-import Header from "../../components/Header";
-import { useState, useEffect } from "react";
+import EventCard from "../../components/EventCard/EventCard";
+import styles from "./home.module.css"
+import { useEvents } from "../../hooks/useEvents";
 
 function Home(){
 
-    const [events, setEvents] = useState([])
-
-    useEffect( () => {
-        setEvents(() => {
-            fetch("http://localhost:3000/api/event")
-            .then(
-                (response) => response.json()
-            )
-            .then(
-                (data) => {
-                    setEvents(data); // put array into state
-                }
-            )
-            .catch(
-                e => console.log(e)
-            )
-        })
-    }, [])
-
-
-    const mappedEvents = events ? events.map(e => <li key={e.id}>{e.title}</li>) : <p>fuck u</p>
+    const {events} = useEvents()
+    const mappedEvents = events ? events.map(e => <EventCard event={e} key={e.id} />) : <p>fuck u</p>
 
     return (
 
         <>
-        <Header/>
-        {mappedEvents}
+            <div className={styles.container}>
+                {mappedEvents}
+            </div>
         </>
     )
 
