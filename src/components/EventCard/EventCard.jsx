@@ -10,7 +10,8 @@ export default function EventCard(props) {
                 <span>Price: {props.event.price}$</span>
                 <span>Location: {props.event.location}</span>
             </div>
-            <button>Details</button>
+            <button onClick={props.onBuy}>Buy</button>
+            <button onClick={props.onWishList}>Wish List</button>
         </div>
     )
 }

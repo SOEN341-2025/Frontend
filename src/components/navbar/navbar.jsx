@@ -19,7 +19,6 @@ export default function Navbar() {
     <button className={({ isActive }) => 
       isActive ? `${styles.navLink} ${styles.active}` : styles.navLink
       }
-      
       onClick={logout}
       
     >

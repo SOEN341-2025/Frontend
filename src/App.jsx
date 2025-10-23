@@ -6,6 +6,7 @@ import useAuth from './hooks/useAuth';
 import Add_event_page from './pages/addEventPage/addEventPage';
 import Home from "./pages/home/home";
 import Layout from "./components/Layout";
+import Event from "./pages/event/Event"
 import Contact_Page from './pages/ContactPage/ContactPage';
 import Ticket from './pages/ticket/Ticket';
 
@@ -22,6 +23,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path="Add_event_page" element={<Add_event_page />} />
         {/*placerholders for now */}
+        <Route path="/event/:id" element={<Event />} />
         <Route path="about" element={<h2>About Page</h2>} />
         <Route path="services" element={<h2>Services Page</h2>} />
         <Route path="contact" element={<Contact_Page/>} />
