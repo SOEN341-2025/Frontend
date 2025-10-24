@@ -21,11 +21,15 @@ body, html {
 }
 body{
   display: flex;
-  justify-content: center;
+  
   background: linear-gradient(#fafdff, #a5f0ff);
   overflow-x: hidden;
   color: #000000;
-  
+}
+
+#root{
+  width: 100%;
+  margin: 0;
 }
 
 html,body {

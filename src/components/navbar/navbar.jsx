@@ -28,7 +28,7 @@ export default function Navbar() {
   </>
 
   return (
-    <header>
+    <header className={styles.container}>
       <nav className={styles.headerNav}>
         <NavLink to="/" className={({ isActive }) =>
             isActive ? `${styles.navLink} ${styles.active}` : styles.navLink}>
