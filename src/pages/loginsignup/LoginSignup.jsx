@@ -11,7 +11,7 @@ function LoginSignup() {
     const [action, setAction] = useState("Log In");
     const [isLoggingIn, setIsLoggingIn] = useState(true); // Tracks login/signup state
     const [formData, setFormData] = useState({ email: "", password: ""});
-
+    //TO DO: const [formData, setFormData] = useState({ name: "", email: "", password: ""});
     const inputHandle = (event) => {
 
         const { name, value } = event.target;
@@ -27,6 +27,8 @@ function LoginSignup() {
         if (isLoggingIn) {
             const wasOK = logIn(formData)
         }
+        //TO DO else: signup(formData) for Name, email, password
+        //Then change UserState in useAuth to include name and stuff.
     }
 
     
@@ -76,8 +78,37 @@ function LoginSignup() {
             }
 
             <div className="submit-container">
-                <div className={action==="Log In"?"submit gray":"submit"}  onClick={() => setAction("Sign Up")}>Sign Up</div>
-                <div className={action==="Sign Up"?"submit gray":"submit"}  onClick={submitHandle}>Login</div>
+               <div
+                   className={action === "Log In" ? "submit gray" : "submit"}
+                   onClick={() => {
+                        if (action === "Log In") {
+                            setAction("Sign Up");
+                            setIsLoggingIn(false);
+                        } else {
+                           
+                            submitHandle();
+                        }
+                    }}
+                >
+                    Sign Up
+                </div>
+
+                <div
+                    className={action === "Sign Up" ? "submit gray" : "submit"}
+                    onClick={() => {
+                        if (action === "Sign Up") {
+                            
+                            setAction("Log In");
+                            setIsLoggingIn(true);
+                        } else {
+                            
+                            submitHandle();
+                        }
+                    }}
+                >
+                    Login
+                </div>
+                
             </div>
 
     </div>
