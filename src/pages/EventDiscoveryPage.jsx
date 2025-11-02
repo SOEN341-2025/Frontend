@@ -1,0 +1,121 @@
+// Djessica Ndjiongue
+// 11/2/2025 , 12:36 pm
+
+// This page will handle :
+// - browsing events 
+// - searching / filtering events 
+// - saving events to personal calendar
+// -claiming tickets & showing QR codes
+
+import React, {useState} from "react";
+import EventCard from "../components/EventCard/EventCard";
+import { useEvents } from "../hooks/useEvents";
+
+export default function EventDiscoveryPage() {
+    const { events } = useEvents(); // fetch events
+    const [filters, setFilters] = useState ({category: "", date: "", organization:""});
+
+
+    
+    // for now, it is hardcoded, I'll later change it such 
+    // that it displays categories entered by the organisers
+
+    const categories = [
+      "", // empty = ALL
+      "Entrepreneurship",
+        "Business",
+        "Arts",
+        "Tech",
+        "Culture",
+        "Political",
+        "Workshop",
+        "Social",
+        "Sports",
+        "Music",
+        "Volunteering",
+        "Networking",
+        "Gaming",
+        "Health & Wellness",
+        "Environmental",
+    ];
+
+
+    // for now, it is hardcoded, I'll later change it such 
+    // that it displays those entered by the organisers
+
+    const organizations = [
+        "", // empty = All
+        "Space Concordia",
+        "Graduate Students’ Association",
+        "Concordia Student Union",
+        "AIESEC",
+        "Concordia Engineering and Computer Science Society",
+        "Concordia Computer Science Club",
+        "Concordia International Students Association",
+        "Concordia Environmental Action Club",
+        "Concordia Music Society",
+        "Concordia Dance Club",
+        "Concordia Gaming Society",
+        "ACSioN",
+        "ASAC",
+        "FOCUS",
+        "ASCEND",
+        "HSAC",
+        "CCSU",
+
+    ];
+
+    const handleFilterChange = (e) => {
+        const { name, value } = e.target;
+        setFilters({ ...filters, [name]: value });
+    };
+
+    // Filter events based on selection
+   const filteredEvents = events.filter((event) => {
+    return (
+      (!filters.category || event.category === filters.category) &&
+      (!filters.date || event.date === filters.date) &&
+      (!filters.organization || event.organization === filters.organization)
+    );
+  });
+
+
+  return (
+    <div>
+      <h2>Search for Events</h2>
+
+      {/* Filters */}
+      <div className="filters">
+        <input type="date" name="date" value={filters.date} onChange={handleFilterChange} />
+      </div>
+
+      <select name="category" value={filters.category} onChange={handleFilterChange}>
+                    {categories.map((c) => (
+                        <option key={c} value={c}>
+                            {c === "" ? "All Categories" : c}
+                        </option>
+                    ))}
+                </select>
+
+                <select name="organization" value={filters.organization} onChange={handleFilterChange}>
+                    {organizations.map((o) => (
+                        <option key={o} value={o}>
+                            {o === "" ? "All Organizations" : o}
+                        </option>
+                    ))}
+                </select>
+
+
+      {/* Event list */}
+      <div className="event-list">
+        {filteredEvents.length > 0 ? (
+                    filteredEvents.map((event) => (
+                        <EventCard key={event.id} event={event} studentView={true} />
+                    ))
+                ) : (
+                    <p>No events found.</p>
+                )}
+      </div>
+    </div>
+  );
+}
