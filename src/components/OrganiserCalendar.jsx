@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./calendarStyles.css";
 import AddEventForm from "./AddEventForm";
+import EventAnalytics from "./EventAnalytics";
 
 export default function OrganiserCalendar() {
   const [currentMonth, setCurrentMonth] = useState(new Date());
@@ -70,7 +71,10 @@ export default function OrganiserCalendar() {
         })}
       </div>
 
-      {/* Event form */}
+  {/* Analytics */}
+  <EventAnalytics events={events} />
+
+  {/* Event form */}
       {showForm && selectedDate && (
         <div
           style={{
