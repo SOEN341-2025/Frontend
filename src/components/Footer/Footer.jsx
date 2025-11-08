@@ -1,9 +1,9 @@
+import "./Footer.css";
 import React from "react";
-import "../../App.css";
+import logo from "../../assets/logo.png";
 import { FaInstagram, FaLinkedin } from "react-icons/fa";
 
-
-function Contact_Page() {
+export default function Footer() {
   const mailto = `mailto:support@campusevents.edu?subject=${encodeURIComponent(
     "Campus Events — Support"
   )}`;
@@ -12,8 +12,11 @@ function Contact_Page() {
     "https://maps.google.com/?q=1455%20De%20Maisonneuve%20Blvd%20W%2C%20Montreal%20QC%20H3G%201M8";
 
   return (
-    <section className="contact_info" aria-labelledby="contact-heading">
-      <h3 id="contact-heading">Contact Us</h3>
+    <footer className="footer">
+      
+      <img src={logo}/>
+      <section className="contact_info" aria-labelledby="contact-heading">
+      <h4 id="contact-heading">Contact Us</h4>
       <p>Have a question about events or tickets? Reach out.</p>
 
       <address>
@@ -49,11 +52,11 @@ function Contact_Page() {
 
       {/* Social links  */}
       <nav aria-label="Social links" className="small">
-        <a href="https://www.instagram.com/concordiauniversity/" target="_blank" rel="noreferrer"><FaInstagram classname ="icon"/>Instagram</a>
+        <a href="https://www.instagram.com/concordiauniversity/" target="_blank" rel="noreferrer"><FaInstagram classname ="icon"/></a>
         {" · "}
         <a href="https://x.com/concordia" target="_blank" rel="noreferrer">X</a>
         {" · "}
-        <a href="https://www.linkedin.com/school/concordia-university/posts/?feedView=all" target="_blank" rel="noreferrer"><FaLinkedin classname = "icon" />LinkedIn</a>
+        <a href="https://www.linkedin.com/school/concordia-university/posts/?feedView=all" target="_blank" rel="noreferrer"><FaLinkedin classname = "icon" /></a>
       </nav>
 
       
@@ -63,7 +66,7 @@ function Contact_Page() {
        
       </p>
     </section>
+      
+    </footer>
   );
 }
-
-export default Contact_Page;

@@ -1,0 +1,22 @@
+footer {
+    color: white;
+    background-color: rgb(18, 18, 18);
+    width: 100%; 
+    bottom: 0;
+    padding: 0%;
+    margin: 0%;
+    padding-left: 30px;
+    padding-bottom: 30px;
+    padding-top:30px;
+    margin-top: 50vh;
+}
+
+img {
+    width: 240px;
+    padding-bottom: 30px;
+}
+
+a{
+    color: white; 
+    text-decoration: none;
+}
