@@ -9,9 +9,9 @@ import useAuth from '../../hooks/useAuth'
 
 function LoginSignup() {
     const [action, setAction] = useState("Log In");
-    const [isLoggingIn, setIsLoggingIn] = useState(true); // Tracks login/signup state
     const [formData, setFormData] = useState({ email: "", password: ""});
-    //TO DO: const [formData, setFormData] = useState({ name: "", email: "", password: ""});
+    const { userState } = useAuth();
+    const { user, logIn, signUp } = userState();
     const inputHandle = (event) => {
 
         const { name, value } = event.target;
@@ -22,18 +22,24 @@ function LoginSignup() {
     };
 
     const submitHandle = (e) => {
-        e.preventDefault();
+        const id = e.target.id;
+        console.log(id);      
+        
+        if(id != action) {
+            setAction(id)
+            return
+        }
 
-        if (isLoggingIn) {
+        if(id == "Log In"){
             const wasOK = logIn(formData)
         }
-        //TO DO else: signup(formData) for Name, email, password
-        //Then change UserState in useAuth to include name and stuff.
+
+        // Todo
+        signUp(formData)
+
     }
 
     
-    const { userState } = useAuth();
-    const { user, logIn, signUp } = userState();
     const navigate = useNavigate();
 
 
@@ -79,32 +85,17 @@ function LoginSignup() {
 
             <div className="submit-container">
                <div
-                   className={action === "Log In" ? "submit gray" : "submit"}
-                   onClick={() => {
-                        if (action === "Log In") {
-                            setAction("Sign Up");
-                            setIsLoggingIn(false);
-                        } else {
-                           
-                            submitHandle();
-                        }
-                    }}
+                    id = "Sign Up"
+                    className={action === "Log In" ? "submit gray" : "submit"}
+                    onClick={submitHandle}
                 >
                     Sign Up
                 </div>
 
                 <div
+                    id ="Log In"
                     className={action === "Sign Up" ? "submit gray" : "submit"}
-                    onClick={() => {
-                        if (action === "Sign Up") {
-                            
-                            setAction("Log In");
-                            setIsLoggingIn(true);
-                        } else {
-                            
-                            submitHandle();
-                        }
-                    }}
+                    onClick={submitHandle}
                 >
                     Login
                 </div>

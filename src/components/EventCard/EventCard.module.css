@@ -36,8 +36,12 @@
 .card button {
     margin-top: 10px;
     margin-bottom: 10px;
+    height: 35px;
     width: 85%;
     margin-left: auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
     margin-right: auto;
 }
 

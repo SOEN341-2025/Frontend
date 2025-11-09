@@ -1,6 +1,7 @@
 import style from "./EventCard.module.css";
 
 export default function EventCard(props) {
+
   const { event, studentView } = props;
 
   // Save event

@@ -6,6 +6,7 @@ import useAuth from './hooks/useAuth';
 import Add_event_page from './pages/addEventPage/addEventPage';
 import Home from "./pages/home/home";
 import Layout from "./components/Layout";
+import Event from "./pages/event/Event"
 import Contact_Page from './pages/ContactPage/ContactPage';
 import Ticket from './pages/ticket/Ticket';
 import OrganiserCalendar from './components/OrganiserCalendar';
