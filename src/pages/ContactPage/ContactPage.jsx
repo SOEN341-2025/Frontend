@@ -13,7 +13,7 @@ function Contact_Page() {
 
   return (
     <section className="contact_info" aria-labelledby="contact-heading">
-      <h2 id="contact-heading">Contact Us</h2>
+      <h3 id="contact-heading">Contact Us</h3>
       <p>Have a question about events or tickets? Reach out.</p>
 
       <address>

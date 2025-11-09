@@ -11,7 +11,6 @@ export default function AddEventPage(){
         <>
         <Header/>
         <AddEventForm />
-
         </>
     )
 
