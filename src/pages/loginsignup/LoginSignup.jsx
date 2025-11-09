@@ -9,8 +9,9 @@ import useAuth from '../../hooks/useAuth'
 
 function LoginSignup() {
     const [action, setAction] = useState("Log In");
-    const [isLoggingIn, setIsLoggingIn] = useState(true); // Tracks login/signup state
     const [formData, setFormData] = useState({ email: "", password: ""});
+    const { userState } = useAuth();
+    const { user, logIn, signUp } = userState();
 
     const inputHandle = (event) => {
 
@@ -22,16 +23,24 @@ function LoginSignup() {
     };
 
     const submitHandle = (e) => {
-        e.preventDefault();
+        const id = e.target.id;
+        console.log(id);      
+        
+        if(id != action) {
+            setAction(id)
+            return
+        }
 
-        if (isLoggingIn) {
+        if(id == "Log In"){
             const wasOK = logIn(formData)
         }
+
+        // Todo
+        signUp(formData)
+
     }
 
     
-    const { userState } = useAuth();
-    const { user, logIn, signUp } = userState();
     const navigate = useNavigate();
 
 
@@ -76,8 +85,22 @@ function LoginSignup() {
             }
 
             <div className="submit-container">
-                <div className={action==="Log In"?"submit gray":"submit"}  onClick={() => setAction("Sign Up")}>Sign Up</div>
-                <div className={action==="Sign Up"?"submit gray":"submit"}  onClick={submitHandle}>Login</div>
+               <div
+                    id = "Sign Up"
+                    className={action === "Log In" ? "submit gray" : "submit"}
+                    onClick={submitHandle}
+                >
+                    Sign Up
+                </div>
+
+                <div
+                    id ="Log In"
+                    className={action === "Sign Up" ? "submit gray" : "submit"}
+                    onClick={submitHandle}
+                >
+                    Login
+                </div>
+                
             </div>
 
     </div>
