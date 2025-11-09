@@ -32,6 +32,7 @@ function LoginSignup() {
 
         if(id == "Log In"){
             const wasOK = logIn(formData)
+            return
         }
 
         // Todo

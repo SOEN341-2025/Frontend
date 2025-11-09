@@ -9,15 +9,13 @@ const useAuth = () => {
 
         const [ user , setUser ] = useState( () => {
             const savedAuth = Cookies.get('auth')
-            return savedAuth ? JSON.parse(savedAuth) : { email : '' , token : '' }
+            return savedAuth ? JSON.parse(savedAuth) : { email : '' , token : '' , organizations : '' }
         })
 
         const saveUser = async (data) => {
             
-            const parsedData = { email : data.email , token : data.token }
-            Cookies.set('auth' , JSON.stringify(parsedData), {expires: 1/24} )
-            setUser(parsedData)
-
+            Cookies.set('auth' , JSON.stringify(data), {expires: 1/24} )
+            setUser(data)
         }
 
         const logIn = async ( user ) => {
@@ -36,12 +34,8 @@ const useAuth = () => {
                     throw new Error('Network response was not ok ' + response.statusText)
                   
                 const data = await response.json()          
-                const { token } = data
-                const { email } = user
 
-                console.log(token)
-
-                saveUser({ email : email , token : token })
+                saveUser({ email : data.email , token : data.token , organizations : data.organizations })
             }
             catch(err){
                 console.log(err)
