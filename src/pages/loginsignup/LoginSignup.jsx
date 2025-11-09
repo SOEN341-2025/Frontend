@@ -3,7 +3,6 @@ import './LoginSignup.css'
 import email from '../../assets/LoginSignup/email.png'
 import password from '../../assets/LoginSignup/password.png'
 import User_Login from '../../assets/LoginSignup/User_Login.png'
-import Header from '../../components/Header'
 import { useState, useEffect } from 'react'
 import useAuth from '../../hooks/useAuth'
 
@@ -113,7 +112,6 @@ export default function LoginPage(){
     return (
 
         <>
-        <Header/>
         <LoginSignup />
 
         </>

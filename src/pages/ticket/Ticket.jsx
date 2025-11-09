@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Header from "../../components/Header";
 import { QRCodeSVG } from "qrcode.react";
 import "./Ticket.css";
 import "../addEventPage/addEventPage.css";
@@ -18,7 +17,6 @@ function Ticket() {
 
   return (
     <>
-      <Header />
       <div className='urlStyle ticketContainer'>
         <label className='ticketLabel'>Enter URL:
           <input
