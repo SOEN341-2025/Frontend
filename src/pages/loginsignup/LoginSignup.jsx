@@ -12,7 +12,6 @@ function LoginSignup() {
     const [formData, setFormData] = useState({ email: "", password: ""});
     const { userState } = useAuth();
     const { user, logIn, signUp } = userState();
-
     const inputHandle = (event) => {
 
         const { name, value } = event.target;

@@ -54,6 +54,11 @@ export default function Navbar() {
           Add an event
         </NavLink>
 
+         <NavLink to="/student-events" className={({ isActive }) =>
+            isActive ? `${styles.navLink} ${styles.active}` : styles.navLink}>
+          Discover events
+        </NavLink>
+
         <NavLink to="/ticket" className={({ isActive }) =>
             isActive ? `${styles.navLink} ${styles.active}` : styles.navLink}>
           Tickets
