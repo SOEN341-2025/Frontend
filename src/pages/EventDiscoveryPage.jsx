@@ -10,6 +10,7 @@
 import React, {useState} from "react";
 import EventCard from "../components/EventCard/EventCard";
 import { useEvents } from "../hooks/useEvents";
+import "./EventDiscoveryPage.css";
 
 export default function EventDiscoveryPage() {
     const { events } = useEvents(); // fetch events
@@ -82,29 +83,25 @@ export default function EventDiscoveryPage() {
 
   return (
     <div>
-      <h2>Search for Events</h2>
 
       {/* Filters */}
-      <div className="filters">
-        <input type="date" name="date" value={filters.date} onChange={handleFilterChange} />
+      <div className="filters-container">
+        <input className="date-filter" type="date" name="date" value={filters.date} onChange={handleFilterChange} />
+
+        <select className="category-filter" name="category" value={filters.category} onChange={handleFilterChange}>
+          {categories.map((c) => (
+            <option key={c} value={c}>
+              {c === "" ? "All Categories" : c}
+            </option>))}
+        </select>
+
+        <select className="organization-filter" name="organization" value={filters.organization} onChange={handleFilterChange}>
+          {organizations.map((o) => (
+            <option key={o} value={o}>
+              {o === "" ? "All Organizations" : o}
+            </option>))}
+        </select>
       </div>
-
-      <select name="category" value={filters.category} onChange={handleFilterChange}>
-                    {categories.map((c) => (
-                        <option key={c} value={c}>
-                            {c === "" ? "All Categories" : c}
-                        </option>
-                    ))}
-                </select>
-
-                <select name="organization" value={filters.organization} onChange={handleFilterChange}>
-                    {organizations.map((o) => (
-                        <option key={o} value={o}>
-                            {o === "" ? "All Organizations" : o}
-                        </option>
-                    ))}
-                </select>
-
 
       {/* Event list */}
       <div className="event-list">

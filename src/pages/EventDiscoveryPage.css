@@ -1,0 +1,35 @@
+.filters-container{
+    padding-left: 30px; 
+    padding-right: 30px;
+    text-align: center;
+    align-items: center;
+}
+
+.filters-container input,
+.filters-container select{
+    height: 40px;
+    background-color: white;
+    color: black;
+}
+
+.date-filter{
+    border-radius: 0%;
+    border-width: 0;
+    border-right-width: 1px;
+    border-right-color: grey;
+    width:25%;
+}
+
+.organization-filter{
+    border-radius: 0%;
+    border-width: 0;
+    border-left-color: grey; 
+    border-left-width: 1px; 
+    width: 25%;
+}
+
+.category-filter{
+    border-radius: 0%;
+    border-width: 0;
+    width: 25%;
+}
