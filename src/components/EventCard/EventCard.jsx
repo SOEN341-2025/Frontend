@@ -24,24 +24,22 @@ export default function EventCard(props) {
     <div className={style.card}>
       <h4>{event.title}</h4>
       {event.icon && <img src={`http://localhost:3000/uploads/${event.icon}`} alt={event.title} />}
-      <div>
-        {event.price !== undefined && <span>Price: {event.price}$</span>}
-        {event.location && <span>Location: {event.location}</span>}
-      </div>
-
+      {event.price !== undefined && <span>Price: {event.price}$</span>}
+      {event.location && <span>Location: {event.location}</span>}
+      
       {/* Optional fields for student view */}
       {studentView && (
         <div>
           {event.date && <p>Date: {event.date}</p>}
           {event.category && <p>Category: {event.category}</p>}
           {event.organization && <p>Organization: {event.organization}</p>}
-          <button onClick={handleSave}>Save Event</button>
-          <button onClick={handleClaimTicket}>Claim Ticket</button>
+          <div className={style.buttonsContainer}>
+            <button className={style.leftButton} onClick={handleSave}>Save</button>
+            <button className={style.rightButton} onClick={handleClaimTicket}>Claim</button>
+          </div>
         </div>
       )}
 
-      {/* Always show details button */}
-      <button>Details</button>
     </div>
   );
 }
