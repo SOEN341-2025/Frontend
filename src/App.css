@@ -22,7 +22,7 @@ body, html {
 body{
   display: flex;
   
-  background: linear-gradient(#fafdff, #a5f0ff);
+  background: white;
   overflow-x: hidden;
   color: #000000;
 }

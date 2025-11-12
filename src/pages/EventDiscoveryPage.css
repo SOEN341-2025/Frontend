@@ -1,0 +1,53 @@
+.filters-container{
+    display: flex; 
+    align-items: center;
+    justify-content: center; 
+    background-color: rgb(0, 94, 255);
+    height: 12vh;
+    width: 75vw; 
+    margin: 0 auto; 
+    border-radius: 5px;
+
+}
+
+.filters-container input,
+.filters-container select{
+    height: 8vh;
+    background-color: white;
+    color: black;
+}
+
+.date-filter{
+    padding: 1%; 
+    border-radius: 0%;
+    border-width: 0;
+    border-right-width: 1px;
+    border-right-color: grey;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    width:30%;
+}
+
+.category-filter{
+    padding: 1%; 
+    border-radius: 0%;
+    border-width: 0;
+    width: 30%;
+}
+
+.organization-filter{
+    padding: 1%; 
+    border-radius: 0%;
+    border-width: 0;
+    border-left-color: grey; 
+    border-left-width: 1px; 
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px; 
+    width: 30%;
+}
+
+.date-filter::-webkit-calendar-picker-indicator {
+    padding: 5px;
+    border-radius: 3px; 
+    color-scheme: white;
+}

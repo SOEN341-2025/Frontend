@@ -27,7 +27,7 @@ export default function Navbar() {
   </>
 
   return (
-    <header className={styles.container}>
+    <div className={styles.container}>
       <nav className={styles.headerNav}>
         <NavLink to="/" className={({ isActive }) =>
             isActive ? `${styles.navLink} ${styles.active}` : styles.navLink}>
@@ -69,6 +69,6 @@ export default function Navbar() {
         
       </nav>
       <div className={styles.headerBar}></div>
-    </header>
+    </div>
   );
 }
