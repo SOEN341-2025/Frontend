@@ -14,11 +14,11 @@ export default function Header() {
             <th style={{'padding-right': '0', 'padding-bottom': '0'}}>
               <img src={logo} alt="logo"/>
             </th>
-            <th>WORKSHOPS</th>
-            <th>TECH</th>
-            <th>NETWORKING</th>
-            <th>BUSINESS</th>
-            <th>VOLUNTERRING</th>
+            <th className = "center-header">WORKSHOPS</th>
+            <th className = "center-header">TECH</th>
+            <th className = "center-header">NETWORKING</th>
+            <th className = "center-header">BUSINESS</th>
+            <th className = "center-header">VOLUNTERRING</th>
             <th style={{'text-align': 'right'}}><img style={{width:'40px', 'padding-top': '25px'}}src={user_login_white} alt="User icon"/></th>
           </tr>
         </thead>
