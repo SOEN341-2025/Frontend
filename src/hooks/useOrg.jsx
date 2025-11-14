@@ -13,7 +13,7 @@ const useOrg = () => {
     
     const getUserOrganizations = async (token) => {
         
-        const res = await fetch("http://localhost:3000/api/user/organizations", {
+        const res = await fetch("http://localhost:3000/api/organization/user", {
             method: "Get",
             headers: {
                 "Content-Type": "application/json",

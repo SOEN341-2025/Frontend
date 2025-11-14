@@ -4,17 +4,12 @@ import useAuth from "../../hooks/useAuth";
 
 export default function EventCard(props) {
 
-  const { event } = props;
+  const { event , claimClick } = props;
   const { userState } = useAuth()
   const { user } = userState()
 
   // Save event
   const handleSave = () => {
-
-  };
-
-  // Redirect to Ticket page
-  const handleClaimTicket = () => {
 
   };
 
@@ -31,7 +26,7 @@ export default function EventCard(props) {
         {event.organization && <p>Organization: {event.organization}</p>}
         <div className={style.buttonsContainer}>
           <button className={style.leftButton} onClick={handleSave}>Wish List</button>
-          <button className={style.rightButton} onClick={handleClaimTicket}>Claim</button>
+          <button className={style.rightButton} onClick={claimClick}>Claim</button>
         </div>
       </div>
 
