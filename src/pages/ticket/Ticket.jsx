@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import { useState , useEffect } from "react";
 import { QRCodeSVG } from "qrcode.react";
 import "./Ticket.css";
 import "../addEventPage/addEventPage.css";
 import { useSearchParams } from "react-router-dom";
+
 
 function Ticket() {
   const [searchParams] = useSearchParams();
@@ -14,6 +15,14 @@ function Ticket() {
     const { name, value } = event.target;
     setQrCodeUrl({ ...qrCodeUrl, [name]: value });
   };
+
+  const [ tickets, setTickets ] = useState([])
+
+
+
+  useEffect(()=>{
+    
+  },[])
 
   return (
     <>

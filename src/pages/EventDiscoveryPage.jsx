@@ -7,7 +7,7 @@
 // - saving events to personal calendar
 // -claiming tickets & showing QR codes
 
-import React, {useState} from "react";
+import {useState} from "react";
 import EventCard from "../components/EventCard/EventCard";
 import { useEvents } from "../hooks/useEvents";
 import "./EventDiscoveryPage.css";
@@ -16,14 +16,9 @@ export default function EventDiscoveryPage() {
     const { events } = useEvents(); // fetch events
     const [filters, setFilters] = useState ({category: "", date: "", organization:""});
 
-
-    
-    // for now, it is hardcoded, I'll later change it such 
-    // that it displays categories entered by the organisers
-
     const categories = [
-      "", // empty = ALL
-      "Entrepreneurship",
+        "",
+        "Entrepreneurship",
         "Business",
         "Arts",
         "Tech",
@@ -107,7 +102,7 @@ export default function EventDiscoveryPage() {
       <div className="event-list">
         {filteredEvents.length > 0 ? (
                     filteredEvents.map((event) => (
-                        <EventCard key={event.id} event={event} studentView={true} />
+                        <EventCard key={event.id} event={event} />
                     ))
                 ) : (
                     <p>No events found.</p>
