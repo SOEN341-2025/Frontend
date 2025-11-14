@@ -7,7 +7,7 @@ import useAuth from "../../hooks/useAuth";
 function Home(){
 
     const {events} = useEvents()
-    const mappedEvents = events ? events.map(e => <EventCard event={e} key={e.id} studentView={true} />) : <p>fuck u</p>
+    const mappedEvents = events ? events.map(e => <EventCard event={e} key={e.id} />) : <p>fuck u</p>
 
     return (
 

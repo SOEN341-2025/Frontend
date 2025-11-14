@@ -26,6 +26,19 @@ export default function Navbar() {
     </button>
   </>
 
+  const user_nav = user.token != '' && <> 
+
+    <NavLink to="/tickets" className={({ isActive }) =>
+      isActive ? `${styles.navLink} ${styles.active}` : styles.navLink}>
+        Tickets
+    </NavLink>
+
+    <NavLink to="/organizationslist" className={({ isActive }) =>
+            isActive ? `${styles.navLink} ${styles.active}` : styles.navLink}>
+          My Organizations
+    </NavLink>
+    </>
+
   return (
     <div className={styles.container}>
       <nav className={styles.headerNav}>
@@ -39,19 +52,9 @@ export default function Navbar() {
           About
         </NavLink>
 
-        <NavLink to="/services" className={({ isActive }) =>
-            isActive ? `${styles.navLink} ${styles.active}` : styles.navLink}>
-          Services
-        </NavLink>
-
         <NavLink to="/contact" className={({ isActive }) =>
             isActive ? `${styles.navLink} ${styles.active}` : styles.navLink}>
           Contact
-        </NavLink>
-
-        <NavLink to="/Add_event_page" className={({ isActive }) =>
-            isActive ? `${styles.navLink} ${styles.active}` : styles.navLink}>
-          Add an event
         </NavLink>
 
          <NavLink to="/student-events" className={({ isActive }) =>
@@ -59,16 +62,9 @@ export default function Navbar() {
           Discover events
         </NavLink>
 
-        <NavLink to="/ticket" className={({ isActive }) =>
-            isActive ? `${styles.navLink} ${styles.active}` : styles.navLink}>
-          Tickets
-        </NavLink>
+        
 
-        <NavLink to="/organizationslist" className={({ isActive }) =>
-            isActive ? `${styles.navLink} ${styles.active}` : styles.navLink}>
-          My Organizations
-        </NavLink>
-
+        {user_nav}
         {login_logout}
         
       </nav>
