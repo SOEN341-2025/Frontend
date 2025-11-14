@@ -23,13 +23,7 @@ const useEvents = () => {
         return event
     }
 
-    const makeEvent = (event) => {
-
-    }
-
     const buyEvent = (id, token) => {
-
-        console.log(token)
 
         fetch("http://localhost:3000/api/user/add_ticket", {
             method: "Post",
@@ -49,7 +43,7 @@ const useEvents = () => {
         .catch(err => console.error(err));
     }
 
-    return { events , getEvent, buyEvent, makeEvent};
+    return { events , getEvent, buyEvent};
 };
 
 export { useEvents };

@@ -1,0 +1,29 @@
+
+.createOrgDiv {
+    margin-top: 30px;
+    display: flex;
+    background-color: #acd8a7;
+    width: 80%;
+    height: 150px;
+    border-radius: 10px;
+    margin-left: auto;
+    border-style: dashed;
+    border-color: #276221;
+    border-width: 3px;
+    margin-right: auto;
+}
+
+.container{
+    display: flex;
+    width: 90%;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.createOrgDiv button{
+    margin: auto;
+    background-color: #276221;
+}

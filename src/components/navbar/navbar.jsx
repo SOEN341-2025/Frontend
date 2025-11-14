@@ -64,6 +64,10 @@ export default function Navbar() {
           Tickets
         </NavLink>
 
+        <NavLink to="/organizationslist" className={({ isActive }) =>
+            isActive ? `${styles.navLink} ${styles.active}` : styles.navLink}>
+          My Organizations
+        </NavLink>
 
         {login_logout}
         
