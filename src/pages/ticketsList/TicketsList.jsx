@@ -1,6 +1,8 @@
 import useAuth from "../../hooks/useAuth"
 import useTicket from "../../hooks/useTicket"
 import { useState, useEffect } from "react"
+import TicketCard from "../../components/TicketCard/TicketCard"
+import styles from "./TicketsList.module.css"
 
 export default function TicketList() {
 
@@ -14,14 +16,14 @@ export default function TicketList() {
         getTickets(user.token).then(res => setTickets(res))
     }, [])
 
-    console.log(tickets)
-    let mappedTickets = <></>
+    
+    let mappedTickets = tickets.map(t => <TicketCard ticket={t} />)
 
 
     return(
-        <>
-            meow
-        </>
+        <div className={styles.container}>
+            {mappedTickets}
+        </div>
 
     )
 }

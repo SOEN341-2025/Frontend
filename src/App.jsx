@@ -5,8 +5,9 @@ import useAuth from './hooks/useAuth';
 import Home from "./pages/home/home";
 import PrivateRoutes from './utils/PrivateRoutes';
 import Layout from "./components/Layout";
-import OrganizationsList from './pages/OrganizationsList/OrganizationsList';
+import OrganizationsList from './pages/organizationsList/OrganizationsList';
 import Contact_Page from './pages/ContactPage/ContactPage';
+import OrganizationHome from "./pages/organizationHome/OrganizationHome";
 import TicketList from "./pages/ticketsList/TicketsList";
 import OrganiserCalendar from './components/OrganiserCalendar';
 
@@ -30,6 +31,7 @@ function App() {
 
         {/* Protected User Routes */}
         <Route element={<PrivateRoutes />}>
+          <Route path='organizationHome/:id' element={<OrganizationHome />} />
           <Route path='tickets' element={<TicketList />} />
           <Route path='organizationslist' element={<OrganizationsList />} />
           <Route path="Add_event_page" element={<OrganiserCalendar />} />
