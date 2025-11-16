@@ -1,18 +1,22 @@
 
-import { useState } from "react"
 
 const useOrg = () => {
 
-    const getOrganization = (id) => {
+    const getOrganization = async (id, token) => {
+        const res = await fetch(`http://localhost:3000/api/organization/member/${id}`, {
+            method: "Get",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`,
+            }
+        })
 
-    }
+        if (!res.ok) throw new Error("Unauthorized");
 
-    const getOrganizationAnalytics = (id, token) => {
-
+        return res.json()
     }
     
     const getUserOrganizations = async (token) => {
-        
         const res = await fetch("http://localhost:3000/api/organization/user", {
             method: "Get",
             headers: {
@@ -24,6 +28,9 @@ const useOrg = () => {
         if (!res.ok) throw new Error("Unauthorized");
 
         return res.json()
+    }
+
+    const addEventToOrganization = () => {
 
     }
 
@@ -31,7 +38,7 @@ const useOrg = () => {
 
     }
 
-    return { getOrganization , getOrganizationAnalytics , getUserOrganizations , createOrganization }
+    return { getOrganization, getUserOrganizations , createOrganization }
 }
 
 export default useOrg

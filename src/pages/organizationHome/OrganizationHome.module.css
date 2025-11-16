@@ -1,0 +1,90 @@
+
+
+.container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container h1{
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    border-bottom-color: #1a1a1a;
+    border-bottom-width: 3px;
+    border-bottom-style: solid;
+}
+
+.slider{
+    display: flex;
+    flex-direction: row;
+    font-size: x-large;
+    border-style: solid;
+    border-width: 5px;
+    border-color: #1a1a1a;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    border-radius: 15px;
+}
+.slider span{
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.active{
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
+.slider span:hover{
+    text-decoration: underline;
+}
+.onEvents{
+    width: 100vw;
+    position: relative;
+    top:0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    transition: 0.5s;
+}
+
+.offEvents{
+    width: 100vw;
+    position: relative;
+    transition: 0.5s;
+    top:0;
+    left: -100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.onUsers{
+    width: 100vw;
+    position: relative;
+    top:0;
+    left: -100vw;
+    display: flex;
+    flex-direction: column;
+    transition: 0.5s;
+}
+
+.offUsers{
+    width: 100vw;
+    position: relative;
+    transition: 0.5s;
+    top:0;
+    left: +100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.bdsm{
+    display: flex;
+    flex-direction: row;
+    width: 300vw;
+}

@@ -18,32 +18,7 @@ const useEvents = () => {
         fetchEvents();
     }, []);
 
-    const getEvent = (id) => {
-        const [event, setEvent] = useState()
-        return event
-    }
-
-    const buyEvent = (id, token) => {
-
-        fetch("http://localhost:3000/api/user/add_ticket", {
-            method: "Post",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${token}`,
-            },
-            body: JSON.stringify({
-                eventId : id
-            })
-        })
-        .then(res => {
-            if (!res.ok) throw new Error("Unauthorized");
-            return res.json();
-        })
-        .then(data => console.log(data))
-        .catch(err => console.error(err));
-    }
-
-    return { events , getEvent, buyEvent};
+    return { events };
 };
 
 export { useEvents };

@@ -49,7 +49,7 @@ export default function Navbar() {
 
         <NavLink to="/about" className={({ isActive }) =>
             isActive ? `${styles.navLink} ${styles.active}` : styles.navLink}>
-          About
+          Organizations
         </NavLink>
 
         <NavLink to="/contact" className={({ isActive }) =>

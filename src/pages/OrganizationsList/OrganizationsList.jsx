@@ -10,9 +10,6 @@ export default function OrganizationsList() {
     const { userState } = useAuth()
     const { user } = userState()
     const { getUserOrganizations } = useOrg()
-
-    const token = user.token
-
     const [ orgs, setOrgs] = useState([])
 
     useEffect(() => {
@@ -24,7 +21,7 @@ export default function OrganizationsList() {
     let mappedOrgs = <></>
     console.log(orgs)
     if (orgs.length != 0) {
-        mappedOrgs = orgs.map(o => <OrganizationCard src={o.icon} name={o.name} />)
+        mappedOrgs = orgs.map(o => <OrganizationCard id={o.id} src={o.icon} name={o.name} />)
     }
 
 
