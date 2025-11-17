@@ -1,16 +1,18 @@
-
 import {Routes, Route} from "react-router-dom"
-import LoginPage from './pages/loginsignup/LoginSignup';
-import useAuth from './hooks/useAuth';
-import Home from "./pages/home/home";
+
+// Custom
 import PrivateRoutes from './utils/PrivateRoutes';
+import OwnerProtectedRoutes from "./utils/OwnerRoutes";
+import useAuth from './hooks/useAuth';
+
+// Pages
+import LoginPage from './pages/loginsignup/LoginSignup';
+import Home from "./pages/home/home";
 import Layout from "./components/Layout";
 import OrganizationsList from './pages/organizationsList/OrganizationsList';
 import Contact_Page from './pages/ContactPage/ContactPage';
 import OrganizationHome from "./pages/organizationHome/OrganizationHome";
 import TicketList from "./pages/ticketsList/TicketsList";
-import OrganiserCalendar from './components/OrganiserCalendar';
-
 import EventDiscoveryPage from './pages/EventDiscoveryPage';
 
 function App() {
@@ -31,14 +33,28 @@ function App() {
 
         {/* Protected User Routes */}
         <Route element={<PrivateRoutes />}>
-          <Route path='organizationHome/:id' element={<OrganizationHome />} />
+
           <Route path='tickets' element={<TicketList />} />
           <Route path='organizationslist' element={<OrganizationsList />} />
-          <Route path="Add_event_page" element={<OrganiserCalendar />} />
+
+          {/* Organization Routes */}
+          <Route path="organization/:id" element={<OwnerProtectedRoutes />} >
+            <Route index element={<OrganizationHome />} />
+            {/* <Route path="add" element={<OrganiserCalendar />} /> */}
+          </Route>
+
+          {/* Admin routs */}
+          <Route path="admin">
+            <Route index />
+            <Route path="users" />
+            <Route path="organizations" />
+            <Route path="events" />
+          </Route>
+
         </Route>
 
-        {/* Admin routs */}
       </Route>
+
     </Routes> 
     </AuthProvider>
   );

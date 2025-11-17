@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import useOrg from "../../hooks/useOrg";
 import OrganizerEventCard from "../../components/OrganizerEventCard/OrganizerEventCard";
+import OrganizerMemberCard from "../../components/OrganizerMemberCard/OrganizerMemberCard";
 import styles from "./OrganizationHome.module.css"
 
 
@@ -14,7 +15,7 @@ export default function OrganizationHome(){
     const { user }  = userState()
     const { id } = useParams();
 
-    const [ org, setOrg ] = useState({name:'',events:[]})
+    const [ org, setOrg ] = useState({name:'',events:[], users:[]})
     const [ viewEvents, setViewEvents ] = useState(true)
 
     useEffect(() => {
@@ -27,7 +28,13 @@ export default function OrganizationHome(){
     let mappedEvents = <></>
     console.log(org)
     if (org.events.length != 0) {
-        mappedEvents = org.events.map( e => <OrganizerEventCard event={e} />)
+        mappedEvents = org.events.map( e => <OrganizerEventCard key={e.id} event={e} />)
+    }
+
+
+    let mappedMembers = <></>
+    if (org.users.length != 0) {
+        mappedMembers = org.users.map( u => <OrganizerMemberCard user={u} />)
     }
 
 
@@ -50,7 +57,19 @@ export default function OrganizationHome(){
                 </div>
 
                 <div className={viewEvents ? styles.offUsers : styles.onUsers}>
-                    {mappedEvents}
+                    <div className={styles.membersTable}>
+                        <div className={styles.membersTableHeader}>
+                            <span>Name</span>
+                            <span>Email</span>
+                            <span>Owner</span>
+                            <span>Action</span>
+                        </div>
+                        {mappedMembers}
+                        <button className={styles.addMemberBtn}>
+                            Add Member
+                        </button>
+                    </div>
+
                 </div>
             </div>
 
