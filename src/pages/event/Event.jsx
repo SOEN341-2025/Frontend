@@ -14,6 +14,7 @@ import { useEffect , useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import styles from "./Event.module.css";
 import exportToCSV from "../../utils/ExportCSV";
+import createDateRange from "../../utils/createDates";
 
 
 function EventDetails() {
@@ -22,21 +23,18 @@ function EventDetails() {
   const { user } = userState()
 
   const { getTicketAnalytics } = useEvents()
-  const [ event, setEvent] = useState({title: "", created_date: "", tickets: []})
+  const today = new Date().toISOString().split('T')[0];
+  const [ event, setEvent] = useState({title: "", created_date: today, tickets: []})
 
   useEffect(() => {
     getTicketAnalytics(user.token, event_id).then(res => setEvent(res))
   }, [])
 
+  const days = createDateRange(event.created_date, today)
+  const data = days.map(t => ({time: t, value: 0}))
+
   console.log(event)
 
-  const createdPoint = { time: event.created_date , value: 0 }
-  const today = new Date().toISOString().split('T')[0];
-
-  const data = [
-    createdPoint,
-    { time: today, value: 0}
-  ];
 
   const hasBeenClaimed = event.tickets.length > 0
 
@@ -47,11 +45,20 @@ function EventDetails() {
   </>
 
   if (hasBeenClaimed) {
+
+    
+    for(let i=0; i < data.length;i++) {
+      event.tickets.forEach(t => {
+        if(data[i].time == t.bought_time)
+          data[i].value = data[i].value + 1
+      })
+    }
+
     ticketsMap = event.tickets.map(t => 
     <div className={styles.tableRow}>
       <p>{t.user.name}</p>
       <p>{t.user.email}</p>
-      <p>{today}</p>
+      <p>{t.bought_time}</p>
       <p>Not claimed</p>
     </div>
     )
@@ -89,7 +96,7 @@ function EventDetails() {
           </div>
         </> 
       : 
-        <p>No One has bought this ticket yet</p>
+        <p>No One has registered for this event yet</p>
       }
       
     </div>
