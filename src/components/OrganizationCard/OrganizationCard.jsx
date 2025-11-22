@@ -7,7 +7,7 @@ export default function OrganizationCard(props) {
     <div className={styles.container}>
         <img src={`http://localhost:3000/uploads/${props.src}`}/>
         <p>{props.name}</p>
-        <a href={`/organizationhome/${props.id}`}><button>View</button></a>
+        <a href={`/organization/${props.id}`}><button>View</button></a>
     </div>
     )
 }
