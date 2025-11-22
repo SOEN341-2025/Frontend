@@ -5,7 +5,7 @@ import useOrg from "../../hooks/useOrg";
 import OrganizerEventCard from "../../components/OrganizerEventCard/OrganizerEventCard";
 import OrganizerMemberCard from "../../components/OrganizerMemberCard/OrganizerMemberCard";
 import styles from "./OrganizationHome.module.css"
-
+import AddEventForm from "../../components/AddEventForm";
 
 
 export default function OrganizationHome(){
@@ -16,7 +16,9 @@ export default function OrganizationHome(){
     const { id } = useParams();
 
     const [ org, setOrg ] = useState({name:'',events:[], users:[]})
-    const [ viewEvents, setViewEvents ] = useState(true)
+    const [ viewMode, setViewMode ] = useState(0)
+
+    const bsdm_map = [styles.bdsm0, styles.bdsm1, styles.bdsm2]
 
     useEffect(() => {
         getOrganization(id, user.token).then(res => {
@@ -43,20 +45,23 @@ export default function OrganizationHome(){
             <h1>{org.name} Home</h1>
 
             <div className={styles.slider}>
-                <span className={ viewEvents && styles.active} onClick={() =>setViewEvents(true)}>
+                <span className={ viewMode==0 && styles.active} onClick={() =>setViewMode(0)}>
                     Events
                 </span>
-                <span className={ !viewEvents && styles.active} onClick={() =>setViewEvents(false)}>
+                <span className={ viewMode==1 && styles.active} onClick={() =>setViewMode(1)}>
                     Members
+                </span>
+                <span className={ viewMode==2 && styles.active } onClick={() =>setViewMode(2)}>
+                    Add Event
                 </span>
             </div>
 
-            <div className={styles.bdsm}>   
-                <div className={viewEvents ? styles.onEvents : styles.offEvents}>
+            <div className={bsdm_map[viewMode]}>   
+                <div className={styles.page}>
                     {mappedEvents}
                 </div>
 
-                <div className={viewEvents ? styles.offUsers : styles.onUsers}>
+                <div className={styles.page}>
                     <div className={styles.membersTable}>
                         <div className={styles.membersTableHeader}>
                             <span>Name</span>
@@ -70,6 +75,10 @@ export default function OrganizationHome(){
                         </button>
                     </div>
 
+                </div>
+
+                <div className={styles.page}>
+                    <AddEventForm />
                 </div>
             </div>
 

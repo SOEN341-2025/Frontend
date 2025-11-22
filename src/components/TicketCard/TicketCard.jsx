@@ -8,7 +8,7 @@ export default function TicketCard(props) {
             <p>Event Name : {props.ticket.title}</p>
             <p>Location : {props.ticket.location}</p>
             <p>Date : {props.ticket.date}</p>
-            <p>Price : ${props.ticket.price}</p>
+            <p>Price : { props.ticket.price == "0" ? "Free" : `$${props.ticket.price}`}</p>
             <button>Generate QR Code</button>
         </div>
     )

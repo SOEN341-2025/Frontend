@@ -17,7 +17,7 @@ export default function EventCard(props) {
     <div className={style.card}>
       <h4>{event.title}</h4>
       {event.icon && <img src={`http://localhost:3000/uploads/${event.icon}`} alt={event.title} />}
-      {event.price !== undefined && <span>Price: {event.price}$</span>}
+      {event.price !== undefined && <span>Price: { event.price == "0" ? "Free" : `$${event.price}`}</span>}
       {event.location && <span>Location: {event.location}</span>}
       
       <div>
