@@ -1,6 +1,6 @@
 import EventCard from "../../components/EventCard/EventCard";
 import styles from "./home.module.css"
-import { useEvents } from "../../hooks/useEvents";
+import useEvents from "../../hooks/useEvents";
 import PopUp from "../../components/popUp/PopUp";
 import useAuth from "../../hooks/useAuth";
 import { useState } from "react";

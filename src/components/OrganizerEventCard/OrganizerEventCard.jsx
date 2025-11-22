@@ -11,13 +11,6 @@ import styles from "./OrganizerEventCard.module.css"
 
 export default function OrganizerEventCard(props) {
 
-    const data = [
-        { time: "2025-11-17 10:00", value: 10 },
-        { time: "2025-11-17 11:00", value: 15 },
-        { time: "2025-11-17 12:00", value: 12 },
-        { time: "2025-11-17 13:00", value: 20 },
-    ];
-
     return(
         <div className={styles.container}>
             <img src={`http://localhost:3000/uploads/${props.event.icon}`}/>

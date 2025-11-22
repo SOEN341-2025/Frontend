@@ -18,7 +18,26 @@ const useEvents = () => {
         fetchEvents();
     }, []);
 
-    return { events };
+    
+    const getTicketAnalytics = async (token, eventId) => {
+        try{
+            const response = await fetch(`http://localhost:3000/api/event/analytics/${eventId}`, {
+                method: "Get",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`,
+                }
+            })
+            if (!response.ok) throw new Error("Failed to fetch data");
+            const data = await response.json();
+            return data
+        }
+        catch(e){
+            console.log(e)
+            return {}
+        }
+    }
+    return { events , getTicketAnalytics };
 };
 
-export { useEvents };
+export default useEvents;
