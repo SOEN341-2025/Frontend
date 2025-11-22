@@ -13,6 +13,7 @@ import useEvents from "../../hooks/useEvents";
 import { useEffect , useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import styles from "./Event.module.css";
+import exportToCSV from "../../utils/ExportCSV";
 
 
 function EventDetails() {
@@ -30,7 +31,6 @@ function EventDetails() {
   console.log(event)
 
   const createdPoint = { time: event.created_date , value: 0 }
-
   const today = new Date().toISOString().split('T')[0];
 
   const data = [
@@ -40,6 +40,9 @@ function EventDetails() {
 
   const hasBeenClaimed = event.tickets.length > 0
 
+  const handleClick = () => {
+    exportToCSV(event.tickets.map(t => ({"name": t.user.name, "email": t.user.email, "status": t.user.status})), `${event.title}.csv`)
+  }
   let ticketsMap = <>
   </>
 
@@ -80,7 +83,7 @@ function EventDetails() {
           <div className={styles.ticketsTable}>
             <div className={styles.header}>
               <h3>Tickets</h3>
-              <button>Export Tickets</button>
+              <button onClick={handleClick}>Export Tickets</button>
             </div>
             {ticketsMap}
           </div>
