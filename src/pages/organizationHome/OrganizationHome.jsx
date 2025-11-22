@@ -66,7 +66,7 @@ export default function OrganizationHome(){
                         <div className={styles.membersTableHeader}>
                             <span>Name</span>
                             <span>Email</span>
-                            <span>Owner</span>
+                            <span>Role</span>
                             <span>Action</span>
                         </div>
                         {mappedMembers}
