@@ -3,6 +3,7 @@ import {Routes, Route} from "react-router-dom"
 // Custom
 import PrivateRoutes from './utils/PrivateRoutes';
 import OwnerProtectedRoutes from "./utils/OwnerRoutes";
+import AdminRoutes from "./utils/AdminRoutes"
 import useAuth from './hooks/useAuth';
 
 // Pages
@@ -12,6 +13,7 @@ import Home from "./pages/home/home";
 import OrganizationsList from './pages/organizationsList/OrganizationsList';
 import Contact_Page from './pages/ContactPage/ContactPage';
 import OrganizationHome from "./pages/organizationHome/OrganizationHome";
+import Admin from "./pages/Admin/Admin";
 import TicketList from "./pages/ticketsList/TicketsList";
 import EventDiscoveryPage from './pages/EventDiscoveryPage';
 import Event from './pages/event/Event'
@@ -45,11 +47,8 @@ function App() {
           </Route>
 
           {/* Admin routs */}
-          <Route path="admin">
-            <Route index />
-            <Route path="users" />
-            <Route path="organizations" />
-            <Route path="events" />
+          <Route path="admin" element={<AdminRoutes />}>
+            <Route index element={<Admin />}/>
           </Route>
 
         </Route>
