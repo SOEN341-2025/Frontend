@@ -9,7 +9,7 @@
 
 import {useState} from "react";
 import EventCard from "../components/EventCard/EventCard";
-import { useEvents } from "../hooks/useEvents";
+import useEvents from "../hooks/useEvents";
 import "./EventDiscoveryPage.css";
 
 export default function EventDiscoveryPage() {

@@ -6,14 +6,15 @@ import OwnerProtectedRoutes from "./utils/OwnerRoutes";
 import useAuth from './hooks/useAuth';
 
 // Pages
+import Layout from "./components/Layout";
 import LoginPage from './pages/loginsignup/LoginSignup';
 import Home from "./pages/home/home";
-import Layout from "./components/Layout";
 import OrganizationsList from './pages/organizationsList/OrganizationsList';
 import Contact_Page from './pages/ContactPage/ContactPage';
 import OrganizationHome from "./pages/organizationHome/OrganizationHome";
 import TicketList from "./pages/ticketsList/TicketsList";
 import EventDiscoveryPage from './pages/EventDiscoveryPage';
+import Event from './pages/event/Event'
 
 function App() {
 
@@ -23,13 +24,13 @@ function App() {
     <AuthProvider>
       <Routes>
       <Route path="/" element={<Layout />}>
+      
         <Route index element={<Home />} />
         <Route path="about" element={<h2>About Page</h2>} />
         <Route path="services" element={<h2>Services Page</h2>} />
         <Route path="contact" element={<Contact_Page/>} />
         <Route path="login" element={<LoginPage/>} />
         <Route path="student-events" element={<EventDiscoveryPage/>} />
-
 
         {/* Protected User Routes */}
         <Route element={<PrivateRoutes />}>
@@ -40,7 +41,7 @@ function App() {
           {/* Organization Routes */}
           <Route path="organization/:id" element={<OwnerProtectedRoutes />} >
             <Route index element={<OrganizationHome />} />
-            {/* <Route path="add" element={<OrganiserCalendar />} /> */}
+            <Route path="event/:event_id" element={<Event />} />
           </Route>
 
           {/* Admin routs */}

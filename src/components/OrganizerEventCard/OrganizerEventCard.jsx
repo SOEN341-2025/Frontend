@@ -1,4 +1,12 @@
-
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+} from "recharts";
 import styles from "./OrganizerEventCard.module.css"
 
 export default function OrganizerEventCard(props) {
@@ -10,7 +18,7 @@ export default function OrganizerEventCard(props) {
             <p>Location : {props.event.location}</p>
             <p>Date : {props.event.date}</p>
             <p>Price : ${props.event.price}</p>
-            <button>Get Analitics</button>
+            <a href={`/organization/${props.event.org_id}/event/${props.event.id}`}><button>Get Analitics</button></a>
         </div>
     )
 }
