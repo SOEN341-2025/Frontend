@@ -5,7 +5,7 @@ import useOrg from "../../hooks/useOrg";
 import OrganizerEventCard from "../../components/OrganizerEventCard/OrganizerEventCard";
 import OrganizerMemberCard from "../../components/OrganizerMemberCard/OrganizerMemberCard";
 import styles from "./OrganizationHome.module.css"
-import AddEventForm from "../../components/AddEventForm";
+import OrganiserCalender from "../../components/OrganiserCalendar"
 
 
 export default function OrganizationHome(){
@@ -78,7 +78,7 @@ export default function OrganizationHome(){
                 </div>
 
                 <div className={styles.page}>
-                    <AddEventForm />
+                    <OrganiserCalender />
                 </div>
             </div>
 

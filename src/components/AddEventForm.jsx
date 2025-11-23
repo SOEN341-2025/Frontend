@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./AddEventForm.css"
 
 export default function AddEventForm({ selectedDate, onAddEvent }) {
   const [eventForm, setEventForm] = useState({
@@ -10,6 +11,7 @@ export default function AddEventForm({ selectedDate, onAddEvent }) {
     price: "",
     capacity: "",
     date: "",
+    image: null,
   });
 
   // When a date is selected on the calendar, set it in the form
@@ -50,10 +52,16 @@ export default function AddEventForm({ selectedDate, onAddEvent }) {
     });
   };
 
+  //Hander for file input
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    setEventForm({ ...eventForm, image: file});
+  }
+
   return (
     <form onSubmit={handleSubmit}>
       <h3 style={{ textAlign: "center" }}>Add Event Details</h3>
-
+    
       <label>
         Title:
         <br />
@@ -67,6 +75,19 @@ export default function AddEventForm({ selectedDate, onAddEvent }) {
         />
       </label>
       <br />
+
+      <div className="addEventImage">
+        <label>
+          Image:
+          <br/>
+          <input 
+            type="file"
+            name="image"
+            accept="image/*"
+            onChange={handleImageChange}
+          />
+        </label>
+      </div>
 
       <label>
         Description:
@@ -131,7 +152,9 @@ export default function AddEventForm({ selectedDate, onAddEvent }) {
           value={eventForm.capacity}
           onChange={editEventForm}
           placeholder="1000"
+          min={1}
         />
+
       </label>
       <br />
 
