@@ -11,7 +11,6 @@ import Layout from "./components/Layout";
 import LoginPage from './pages/loginsignup/LoginSignup';
 import Home from "./pages/home/home";
 import OrganizationsList from './pages/organizationsList/OrganizationsList';
-import Contact_Page from './pages/ContactPage/ContactPage';
 import OrganizationHome from "./pages/organizationHome/OrganizationHome";
 import Admin from "./pages/Admin/Admin";
 import TicketList from "./pages/ticketsList/TicketsList";
@@ -30,7 +29,6 @@ function App() {
         <Route index element={<Home />} />
         <Route path="about" element={<h2>About Page</h2>} />
         <Route path="services" element={<h2>Services Page</h2>} />
-        <Route path="contact" element={<Contact_Page/>} />
         <Route path="login" element={<LoginPage/>} />
         <Route path="student-events" element={<EventDiscoveryPage/>} />
 

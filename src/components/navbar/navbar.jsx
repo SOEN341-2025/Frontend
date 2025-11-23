@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { NavHashLink } from 'react-router-hash-link';
 import styles from "./navbar.module.css";
 import useAuth from "../../hooks/useAuth";
 
@@ -38,7 +39,7 @@ export default function Navbar() {
           My Organizations
     </NavLink>
     </>
-
+  
   return (
     <div className={styles.container}>
       <nav className={styles.headerNav}>
@@ -52,10 +53,13 @@ export default function Navbar() {
           Organizations
         </NavLink>
 
-        <NavLink to="/contact" className={({ isActive }) =>
-            isActive ? `${styles.navLink} ${styles.active}` : styles.navLink}>
+        <NavHashLink 
+          to="#footer" 
+          smooth
+          className={styles.navLink}
+        >
           Contact
-        </NavLink>
+        </NavHashLink>
 
          <NavLink to="/student-events" className={({ isActive }) =>
             isActive ? `${styles.navLink} ${styles.active}` : styles.navLink}>
