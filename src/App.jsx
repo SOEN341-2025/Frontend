@@ -9,7 +9,6 @@ import useAuth from './hooks/useAuth';
 // Pages
 import Layout from "./components/Layout";
 import LoginPage from './pages/loginsignup/LoginSignup';
-import Home from "./pages/home/home";
 import OrganizationsList from './pages/organizationsList/OrganizationsList';
 import OrganizationHome from "./pages/organizationHome/OrganizationHome";
 import Admin from "./pages/Admin/Admin";
@@ -26,11 +25,10 @@ function App() {
       <Routes>
       <Route path="/" element={<Layout />}>
       
-        <Route index element={<Home />} />
+        <Route index element={<EventDiscoveryPage />} />
         <Route path="about" element={<h2>About Page</h2>} />
         <Route path="services" element={<h2>Services Page</h2>} />
         <Route path="login" element={<LoginPage/>} />
-        <Route path="student-events" element={<EventDiscoveryPage/>} />
 
         {/* Protected User Routes */}
         <Route element={<PrivateRoutes />}>

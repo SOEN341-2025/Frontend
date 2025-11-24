@@ -42,6 +42,7 @@ export default function Navbar() {
   return (
     <div className={styles.container}>
       <nav className={styles.headerNav}>
+        
         <NavLink to="/" className={({ isActive }) =>
             isActive ? `${styles.navLink} ${styles.active}` : styles.navLink}>
           Home
@@ -60,10 +61,7 @@ export default function Navbar() {
           Contact
         </NavHashLink>
 
-         <NavLink to="/student-events" className={({ isActive }) =>
-            isActive ? `${styles.navLink} ${styles.active}` : styles.navLink}>
-          Discover events
-        </NavLink>
+         
 
         
 
