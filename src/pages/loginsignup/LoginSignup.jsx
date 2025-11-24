@@ -11,6 +11,8 @@ function LoginSignup() {
     const [formData, setFormData] = useState({ email: "", password: ""});
     const { userState } = useAuth();
     const { user, logIn, signUp } = userState();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
     const inputHandle = (event) => {
 
         const { name, value } = event.target;
@@ -20,7 +22,7 @@ function LoginSignup() {
         }));
     };
 
-    const submitHandle = (e) => {
+    const submitHandle = async (e) => {
         const id = e.target.id;
         console.log(id);      
         
@@ -30,12 +32,34 @@ function LoginSignup() {
         }
 
         if(id == "Log In"){
-            const wasOK = logIn(formData)
+
+            if(formData.email == "") {
+                alert("Please Enter the email")
+                return
+            }
+
+            if(formData.password == "") {
+                alert("Please Enter the password")
+                return
+            }
+
+            // Validation
+            if (!emailRegex.test(formData.email)) {
+                alert("Please enter a valid email address");
+                return;
+            }
+
+            const wasOK = await logIn(formData)
+
+            if(!wasOK) {
+                alert("Email or password was wrong")
+            }
+
             return
         }
 
         // Todo
-        signUp(formData)
+        await signUp(formData)
 
     }
 
