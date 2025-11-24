@@ -59,7 +59,7 @@ export default function AddEventForm({ selectedDate, onAddEvent }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="addEventForm">
       <h3 style={{ textAlign: "center" }}>Add Event Details</h3>
     
       <label>

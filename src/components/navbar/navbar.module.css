@@ -61,7 +61,8 @@
   cursor: pointer;
   text-transform: uppercase;
   transition: all 0.2s ease-in-out;
-  height: 8vh;
+  max-height: 50px;
+  min-height: 40px;
 }
 
 .logoutButton:hover {

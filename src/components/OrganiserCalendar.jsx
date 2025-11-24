@@ -82,12 +82,15 @@ export default function OrganiserCalendar() {
             border: "2px solid #304acbff",
             borderRadius: "10px",
             padding: "1.5rem",
-            maxWidth: "600px",
+            width: "60vw",
+            maxWidth: "800px",
             marginInline: "auto",
             backgroundColor: "#f9f9f9",
+
           }}
         >
           <h3>Adding event for: {selectedDate.toDateString()}</h3>
+
           <AddEventForm selectedDate={selectedDate} onAddEvent={handleAddEvent} />
 
           <button
