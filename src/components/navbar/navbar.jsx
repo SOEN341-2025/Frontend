@@ -17,9 +17,8 @@ export default function Navbar() {
     </NavLink>
   </> :
   <>
-    <button className={({ isActive }) => 
-      isActive ? `${styles.navLink} ${styles.active}` : styles.navLink
-      }
+    <button 
+      className={styles.logoutButton}
       onClick={logout}
       
     >
