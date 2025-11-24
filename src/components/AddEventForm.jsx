@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./AddEventForm.css"
+import styles from "./AddEventForm.module.css"
 
 export default function AddEventForm({ selectedDate, onAddEvent }) {
   const [eventForm, setEventForm] = useState({
@@ -59,21 +59,23 @@ export default function AddEventForm({ selectedDate, onAddEvent }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={styles.addEventForm}>
       <h3 style={{ textAlign: "center" }}>Add Event Details</h3>
+      <br/>
     
       <label>
         Title:
         <br />
-        <input
-          className="inputStyle"
+        
+      </label>
+      <input
+          className={styles.inputStyle}
           type="text"
           name="title"
           value={eventForm.title}
           onChange={editEventForm}
           placeholder="Hackathon 2025"
         />
-      </label>
       <br />
 
       <div className="addEventImage">
@@ -88,12 +90,13 @@ export default function AddEventForm({ selectedDate, onAddEvent }) {
           />
         </label>
       </div>
+      <br/>
 
       <label>
         Description:
         <br />
         <textarea
-          className="inputStyle"
+          className={styles.inputStyle}
           name="description"
           value={eventForm.description}
           onChange={editEventForm}
@@ -106,7 +109,7 @@ export default function AddEventForm({ selectedDate, onAddEvent }) {
         Location:
         <br />
         <input
-          className="inputStyle"
+          className={styles.inputStyle}
           type="text"
           name="location"
           value={eventForm.location}
@@ -120,7 +123,7 @@ export default function AddEventForm({ selectedDate, onAddEvent }) {
         Date:
         <br />
         <input
-          className="inputStyle"
+          className={styles.inputStyle}
           type="text"
           name="date"
           value={eventForm.date}
@@ -133,7 +136,7 @@ export default function AddEventForm({ selectedDate, onAddEvent }) {
         Time:
         <br />
         <input
-          className="inputStyle"
+          className={styles.inputStyle}
           type="time"
           name="time"
           value={eventForm.time}
@@ -146,7 +149,7 @@ export default function AddEventForm({ selectedDate, onAddEvent }) {
         Venue Capacity:
         <br />
         <input
-          className="inputStyle"
+          className={styles.inputStyle}
           type="number"
           name="capacity"
           value={eventForm.capacity}
@@ -187,7 +190,7 @@ export default function AddEventForm({ selectedDate, onAddEvent }) {
             Ticket Price:
             <br />
             <input
-              className="inputStyle"
+              className={styles.inputStyle}
               type="number"
               name="price"
               value={eventForm.price}
@@ -202,6 +205,7 @@ export default function AddEventForm({ selectedDate, onAddEvent }) {
       <button
         type="submit"
         style={{
+          margin: "0 auto",
           marginTop: "1rem",
           backgroundColor: "#007bff",
           color: "white",
@@ -209,6 +213,7 @@ export default function AddEventForm({ selectedDate, onAddEvent }) {
           padding: "10px 20px",
           borderRadius: "6px",
           cursor: "pointer",
+        
         }}
       >
         Add Event
