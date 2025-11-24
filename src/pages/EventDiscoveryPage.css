@@ -34,7 +34,7 @@
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     border-left: solid;
-    width:50%;
+    width:60%;
     border-left-color: grey;
     border-left-width: 1px; 
 }
@@ -45,6 +45,7 @@
     border-left-color: grey; 
     border-left-width: 1px; 
     width: 20%;
+    margin-right: 5px; 
 }
 
 .date-filter::-webkit-calendar-picker-indicator {
