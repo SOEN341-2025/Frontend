@@ -4,6 +4,7 @@ import styles from "./OrganizationsList.module.css"
 import OrganizationCard from "../../components/OrganizationCard/OrganizationCard"
 import useAuth from "../../hooks/useAuth"
 import { useState , useEffect } from "react"
+import OrganizationForm from "../../components/organizationForm/OrganizationForm"
 
 export default function OrganizationsList() {
 
@@ -39,6 +40,8 @@ export default function OrganizationsList() {
                     Create Organization
                 </button>
             </div>
+
+            <OrganizationForm/>
         </>
     )
 }

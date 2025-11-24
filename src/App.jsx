@@ -5,6 +5,7 @@ import PrivateRoutes from './utils/PrivateRoutes';
 import OwnerProtectedRoutes from "./utils/OwnerRoutes";
 import AdminRoutes from "./utils/AdminRoutes"
 import useAuth from './hooks/useAuth';
+import "./App.css";
 
 // Pages
 import Layout from "./components/Layout";

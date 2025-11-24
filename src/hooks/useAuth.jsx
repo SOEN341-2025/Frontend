@@ -55,7 +55,7 @@ const useAuth = () => {
                     headers: {
                         'Content-Type': 'application/json' 
                     },
-                    body: JSON.stringify( { email : user.email , password : user.password } )
+                    body: JSON.stringify( { name : user.name, email : user.email , password : user.password } )
                 })
                         
                 if (!response.ok)
