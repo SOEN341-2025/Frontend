@@ -1,16 +1,19 @@
 import style from "./EventCard.module.css";
 import useTicket from "../../hooks/useTicket";
 import useAuth from "../../hooks/useAuth";
+import useEvents from "../../hooks/useEvents";
 
 export default function EventCard(props) {
 
   const { event , claimClick } = props;
   const { userState } = useAuth()
   const { user } = userState()
+  const { addToWishList } = useEvents()  
 
   // Save event
-  const handleSave = () => {
-
+  const handleSave = (e) => {
+    addToWishList(user.token, props.event.id).then(res => {
+    })
   };
 
   return (
@@ -25,7 +28,7 @@ export default function EventCard(props) {
         {event.category && <p>Category: {event.category}</p>}
         {event.organization && <p>Organization: {event.organization}</p>}
         <div className={style.buttonsContainer}>
-          <button className={style.leftButton} onClick={handleSave}>Wish List</button>
+          <button className={style.leftButton} onClick={ () => {handleSave(); setText("saved!");} }>Wish List</button>
           <button className={style.rightButton} onClick={claimClick}>Claim</button>
         </div>
       </div>

@@ -33,6 +33,11 @@ export default function Navbar() {
         Tickets
     </NavLink>
 
+    <NavLink to="/wishlist" className={({ isActive }) =>
+      isActive ? `${styles.navLink} ${styles.active}` : styles.navLink}>
+        Wish List
+    </NavLink>
+
     <NavLink to="/organizationslist" className={({ isActive }) =>
             isActive ? `${styles.navLink} ${styles.active}` : styles.navLink}>
           My Organizations

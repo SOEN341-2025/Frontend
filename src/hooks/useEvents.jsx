@@ -37,7 +37,37 @@ const useEvents = () => {
             return {}
         }
     }
-    return { events , getTicketAnalytics };
+
+    const getWishList = async (token) => {
+        const res = await fetch("http://localhost:3000/api/user/wishlist", {
+            method: "Get",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`,
+            }
+        })
+
+        if (!res.ok) throw new Error("Unauthorized");
+        return res.json()
+    }
+
+    const addToWishList = async (token, eventId) => {
+        const res = await fetch("http://localhost:3000/api/user/wishlist", {
+            method: "Post",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`,
+            },
+            body: JSON.stringify({
+                id : eventId
+            })
+        })
+
+        if (!res.ok) throw new Error("Unauthorized");
+        return res.json()
+    }
+
+    return { events , getTicketAnalytics , getWishList , addToWishList };
 };
 
 export default useEvents;

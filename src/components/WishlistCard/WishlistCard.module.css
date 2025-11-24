@@ -1,0 +1,47 @@
+
+.container{
+    background-color: rgb(246, 239, 239);
+    border: solid rgba(255, 255, 255, 0.25) 0;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease-in-out;
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    flex-direction: row;
+    height: 100px;
+    padding: 0;
+    transition: 0.5s;
+    margin-top: 35px;
+    margin-bottom: 20px;
+}
+
+.container:hover{
+    margin-top: 30px;
+    margin-bottom: 25px;
+}
+
+.container img{
+    height: 100%;
+    border-radius: 20px 0 0 20px;
+    margin-left: 0;
+    margin-top: 0;
+    padding: 0;
+    margin-bottom: 0;
+}
+
+.container p{
+    padding: 10px;
+    font-size: large;
+    margin: auto;
+}
+
+.container button{
+    margin: auto;
+    margin-right: 10px;
+    height: 70%;
+    color: white;
+    background-color: rgb(4, 173, 1);
+}

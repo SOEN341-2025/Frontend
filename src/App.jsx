@@ -16,6 +16,7 @@ import Admin from "./pages/Admin/Admin";
 import TicketList from "./pages/ticketsList/TicketsList";
 import EventDiscoveryPage from './pages/EventDiscoveryPage';
 import Event from './pages/event/Event'
+import Wishlist from "./pages/wishList/Wishlist";
 
 function App() {
 
@@ -35,6 +36,7 @@ function App() {
         <Route element={<PrivateRoutes />}>
 
           <Route path='tickets' element={<TicketList />} />
+          <Route path="/wishlist" element={<Wishlist />} />
           <Route path='organizationslist' element={<OrganizationsList />} />
 
           {/* Organization Routes */}
