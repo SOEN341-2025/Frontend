@@ -51,3 +51,20 @@
   border-radius: 3px;
   margin: 0 auto 8px auto;
 }
+
+.logoutButton {
+  background-color: #b30000;       /* red background */
+  color: white;                    /* white text */
+  padding: 4px 8px;
+  border-radius: 1cqb;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.2s ease-in-out;
+  height: 8vh;
+}
+
+.logoutButton:hover {
+  background-color: #e60000;       /* brighter red */
+  box-shadow: 0 0 10px #ff4d4d;
+}

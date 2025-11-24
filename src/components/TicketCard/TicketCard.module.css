@@ -41,5 +41,7 @@
 .container button{
     margin: auto;
     margin-right: 10px;
-    height: 50px;
+    height: 70%;
+    color: white;
+    background-color: rgb(4, 173, 1);
 }

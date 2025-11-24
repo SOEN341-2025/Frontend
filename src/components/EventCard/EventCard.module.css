@@ -69,9 +69,11 @@
 
 .rightButton{
     float: right;
+    color: white;
 }
 
 .card button{
     padding: 0 auto; 
     margin: 0 auto; 
+    color: white;
 }

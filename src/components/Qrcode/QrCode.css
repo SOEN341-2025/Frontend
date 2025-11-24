@@ -1,0 +1,35 @@
+/* QR Code container */
+.qrContainer {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+.qrCodeBox {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    box-shadow: 0 0 20px black;
+    animation: glow 2s infinite alternate;
+    background: rgba(255, 255, 255, 0.8);
+
+}
+
+/* Fallback text */
+.noQrText {
+    color: rgba(255, 255, 255, 0.5);
+    font-style: italic;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes glow {
+    from { box-shadow: 0 0 10px black; }
+    to { box-shadow: 0 0 25px black; }
+}

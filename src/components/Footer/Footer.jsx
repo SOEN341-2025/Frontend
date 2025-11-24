@@ -12,7 +12,7 @@ export default function Footer() {
     "https://maps.google.com/?q=1455%20De%20Maisonneuve%20Blvd%20W%2C%20Montreal%20QC%20H3G%201M8";
 
   return (
-    <footer className="footer">
+    <footer id="footer" className="footer">
       
       <img src={logo}/>
       <section className="contact_info" aria-labelledby="contact-heading">
