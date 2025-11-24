@@ -1,0 +1,32 @@
+.organizationContainer {
+    display: block;
+    margin: 0 auto;
+    background-color: white;
+    margin-top: 30px;
+    border: 2px solid blue;
+    border-radius: 5px;
+    width: 70vw;
+    padding: 20px; /* cleaner spacing */
+}
+
+/* Label paragraphs */
+.organizationContainer p {
+    margin: 8px 0 4px 0; /* cleaner spacing */
+    font-weight: 500;
+    background-color: white;
+}
+
+/* Inputs / textarea styling */
+.fieldStyle {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #999;
+    box-sizing: border-box;
+}
+
+/* Makes textarea not tiny */
+.organizationContainer textarea {
+    min-height: 90px;
+    resize: vertical;
+}
