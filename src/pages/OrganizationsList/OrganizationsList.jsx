@@ -12,6 +12,7 @@ export default function OrganizationsList() {
     const { user } = userState()
     const { getUserOrganizations } = useOrg()
     const [ orgs, setOrgs] = useState([])
+    const [showForm, setShowForm] = useState(false); 
 
     useEffect(() => {
         getUserOrganizations(user.token).then( res => {
@@ -25,9 +26,13 @@ export default function OrganizationsList() {
         mappedOrgs = orgs.map(o => <OrganizationCard id={o.id} src={o.icon} name={o.name} />)
     }
 
-
+    // Update click handler
     const handleCreateClick = () => {
+        setShowForm(true); 
+    }
 
+    const handleCloseClick = () => {
+        setShowForm(false);
     }
 
     return(
@@ -41,7 +46,9 @@ export default function OrganizationsList() {
                 </button>
             </div>
 
-            <OrganizationForm/>
+            {/* The form is rendered when showForm = true */}
+            {showForm && <OrganizationForm/>}
+            
         </>
     )
 }

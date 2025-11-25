@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import styles from "./OrganizationFrom.module.css"
+import handleCloseClick from "../../pages/OrganizationsList/OrganizationsList"
 
 export default function OrganizationForm() {
 
@@ -36,7 +37,7 @@ export default function OrganizationForm() {
                         name="name"
                         value={organizationForm.name}
                         onChange={editOrganizationForm}
-                        placeholder="Fuck You"
+                        placeholder="Concordia SAE"
                     />
                 </p>
 
@@ -59,10 +60,28 @@ export default function OrganizationForm() {
                         name="description"
                         value={organizationForm.description}
                         onChange={editOrganizationForm}
-                        placeholder="Fuck You"
+                        placeholder="Concordia SAE, located in Montreal, Quebec, is a student-run chapter of SAE International at Concordia University. A world-renowned engineering organization, SAE International hosts the Collegiate Design Series competitions for students. These yearly international competitions allow students to apply classroom knowledge to real-life situations, challenging students to design, manufacture, test, and compete with a vehicle in a dynamic environment."
                     />
                 </p>
 
+                <p className={styles.buttonCenterAlign}>
+                    <button
+                        type="submit"
+                        className={styles.orgSubmit}
+                    >
+                        Submit
+                    </button>
+                </p>
+
+                <p className={styles.buttonCenterAlign}>
+                    <button
+                        onClick={handleCloseClick}
+                        type="Close"
+                        className={styles.orgClose}
+                    >
+                        Close
+                    </button>
+                </p>
         
             </form>
         </>

@@ -13,20 +13,63 @@
 .organizationContainer p {
     margin: 8px 0 4px 0; /* cleaner spacing */
     font-weight: 500;
-    background-color: white;
+    border: none;
+    
 }
 
 /* Inputs / textarea styling */
 .fieldStyle {
     width: 100%;
     padding: 8px;
-    border-radius: 4px;
+    border-radius: 5px;
     border: 1px solid #999;
     box-sizing: border-box;
+    background-color:rgb(227, 228, 228);
+}
+
+.organizationContainer input {
+    border: none;
 }
 
 /* Makes textarea not tiny */
 .organizationContainer textarea {
     min-height: 90px;
     resize: vertical;
+    border: none;
+}
+
+.fieldStyle:hover{
+    background-color: rgb(192, 192, 192);
+}
+
+.fieldStyle:focus{
+    background-color: rgb(0, 18, 60);
+    color : white; 
+}
+
+.orgSubmit {
+    margin: 0 auto;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+
+}
+
+.orgClose {
+    margin: 0 auto;
+    background-color: #421c1cff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.buttonCenterAlign {
+    display: flex;
+    justify-content: center;
+
 }
