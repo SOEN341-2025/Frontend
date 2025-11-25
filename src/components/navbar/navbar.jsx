@@ -11,8 +11,7 @@ export default function Navbar() {
 
 
   const login_logout = user.token == '' ? <>
-    <NavLink to="/login" className={({ isActive }) =>
-      isActive ? `${styles.navLink} ${styles.active}` : styles.navLink}>
+    <NavLink to="/login" className={styles.loginButton} >
       Login
     </NavLink>
   </> :

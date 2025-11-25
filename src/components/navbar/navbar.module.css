@@ -3,44 +3,46 @@
   justify-content: center;
   align-items: center;
   gap: 2em;
-  margin-top: 10px;
-  margin-bottom: 8px;
+  padding: 0.5%;
+
+
 }
 .container{
-  margin-right: auto;
-  margin-left: auto;
+  all: none;
+  margin: 0 auto;
+  margin-top: 0;
 }
 
+nav {
+  margin: 0 auto;
+  margin-top: none;
+  color: black;
+}
 .navLink {
   position: relative;
   border: transparent;
   border-radius: 7px;
   padding: 2px 5px;
   font-size: 15px;
-  color: rgb(0, 0, 0);
+  color: black;
   text-decoration: none;
   cursor: pointer;
   transition: all 0.25s ease-in-out;
   text-transform: uppercase;
 
+
 }
 
-/* hover bright glow */
-.navLink:hover {
-  border-color: #5c41bd;
-  box-shadow: 0 0 10px #ffae42, 0 0 15px #ffb343;
-  color: #1c0160;
+.navLink:hover{
+  color:black;
 }
 
 /* active full glow */
 .active {
-  background-color: #1c0160;
-  color: #f2e9ff;
-  border-color: #1c0160;
-  box-shadow:
-    0 0 10px #1c0160,
-    0 0 20px #1c0160,
-    0 0 50px #1c0160;
+  color:white;
+  background-color: rgb(0, 94, 255);
+  padding: 4px 8px;
+  border-radius: 1cqb;
   transition: all 0.2s ease-in-out;
 }
 
@@ -61,11 +63,22 @@
   cursor: pointer;
   text-transform: uppercase;
   transition: all 0.2s ease-in-out;
-  max-height: 50px;
-  min-height: 40px;
+
+}
+.logoutButton:hover{
+  text-decoration: underline;
 }
 
-.logoutButton:hover {
-  background-color: #e60000;       /* brighter red */
-  box-shadow: 0 0 10px #ff4d4d;
+.loginButton {
+  background-color: #00b336;       /* red background */
+  color: white;                    /* white text */
+  padding: 4px 8px;
+  border-radius: 1cqb;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.2s ease-in-out;
+
 }
+
+
