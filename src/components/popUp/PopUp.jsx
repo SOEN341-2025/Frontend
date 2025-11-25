@@ -18,6 +18,10 @@ export default function PopUp(props) {
     const containerClass = (eventId != -1) ? styles.active : styles.inActive
 
     const handleClaimClick = () => {
+        if (user.token == "") {
+            navigate("/login")
+            return
+        }
         buyTicket(user.token, eventId).then(_ => {
             navigate("/tickets")
         })
