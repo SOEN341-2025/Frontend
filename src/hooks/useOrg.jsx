@@ -27,6 +27,7 @@ const useOrg = () => {
 
         if (!res.ok) throw new Error("Unauthorized");
 
+
         return res.json()
     }
 

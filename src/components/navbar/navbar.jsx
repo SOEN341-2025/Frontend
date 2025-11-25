@@ -73,7 +73,7 @@ export default function Navbar() {
 
         {user_nav}
 
-        { user.isAdmin && adminbtn}
+        { user.isAdmin ? adminbtn : <></>}
         {login_logout}
         
       </nav>

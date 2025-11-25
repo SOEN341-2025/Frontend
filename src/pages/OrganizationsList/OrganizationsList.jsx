@@ -16,12 +16,12 @@ export default function OrganizationsList() {
 
     useEffect(() => {
         getUserOrganizations(user.token).then( res => {
+            console.log(res)
             setOrgs(res)
         })
     }, [])
 
     let mappedOrgs = <></>
-    console.log(orgs)
     if (orgs.length != 0) {
         mappedOrgs = orgs.map(o => <OrganizationCard id={o.id} src={o.icon} name={o.name} />)
     }
