@@ -1,0 +1,32 @@
+
+
+.menu{
+    display: flex;
+    flex-direction: row;
+    border-radius: 20px;
+    border-color: #000;
+    border-width: 1px;
+    border-style: solid;
+    width: 80%;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+}
+.menu p{
+    padding: 5px;
+    margin: auto;
+    font-size: large;
+    cursor: pointer;
+}
+
+.table{
+    
+    border-color: #000;
+    border-width: 1px;
+    border-style: solid;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}

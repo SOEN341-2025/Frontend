@@ -8,6 +8,7 @@ export default function Navbar() {
 
   const { userState } = useAuth()
   const { user, logout } = userState();
+  console.log(user)
 
 
   const login_logout = user.token == '' ? <>
@@ -44,6 +45,11 @@ export default function Navbar() {
     </NavLink>
     </>
   
+  const adminbtn = <NavLink to="/admin" className={({ isActive }) =>
+      isActive ? `${styles.navLink} ${styles.active}` : styles.navLink}>
+      Admin Page
+  </NavLink>
+
   return (
     <div className={styles.container}>
       <nav className={styles.headerNav}>
@@ -66,11 +72,9 @@ export default function Navbar() {
           Contact
         </NavHashLink>
 
-         
-
-        
-
         {user_nav}
+
+        { user.isAdmin && adminbtn}
         {login_logout}
         
       </nav>

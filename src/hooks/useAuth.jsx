@@ -9,7 +9,7 @@ const useAuth = () => {
 
         const [ user , setUser ] = useState( () => {
             const savedAuth = Cookies.get('auth')
-            return savedAuth ? JSON.parse(savedAuth) : { email : '' , token : '' , organizations : '' }
+            return savedAuth ? JSON.parse(savedAuth) : { email : '' , token : '' , organizations : '' , isAdmin : false }
         })
 
         const saveUser = async (data) => {
@@ -33,9 +33,9 @@ const useAuth = () => {
                 if (!response.ok)
                     throw new Error('Network response was not ok ' + response.statusText)
                   
-                const data = await response.json()          
+                const data = await response.json()     
 
-                saveUser({ email : data.email , token : data.token , organizations : data.organizations })
+                saveUser({ email : data.email , token : data.token , organizations : data.organizations , isAdmin : data.admin })
             }
             catch(err){
                 console.log(err)
@@ -66,7 +66,7 @@ const useAuth = () => {
                 const email = data.user.email
                 const token = { data }
 
-                saveUser({ email : email , token : token })
+                saveUser({ email : email , token : token , isAdmin : false })
             }
             catch(err){
                 console.log(err)
@@ -79,7 +79,7 @@ const useAuth = () => {
 
         const logout = () => {
             Cookies.remove('auth')
-            setUser( { email : '' , token : ''} )
+            setUser( { email : '' , token : '' , isAdmin : false} )
         }
         
         return (

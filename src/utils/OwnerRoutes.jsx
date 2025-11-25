@@ -13,6 +13,8 @@ const OwnerProtectedRoutes = () => {
     const { userState } = useAuth()
     const { user } = userState()
 
+    if (user.isAdmin) return <Outlet />
+
     useEffect(() => {
         const verify = async () => {
             try {

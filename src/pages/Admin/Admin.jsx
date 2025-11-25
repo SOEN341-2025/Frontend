@@ -1,15 +1,55 @@
 import { useState, useEffect } from "react"
+import useAuth from "../../hooks/useAuth"
 import styles from "./Admin.module.css"
+import OrganizationCard from "../../components/OrganizationCard/OrganizationCard"
 
 export default function Admin() {
 
     const [adminData, setAdminData] = useState({users : [], organizations: [], requests: []})
     const [viewMode, setViewMode] = useState(0)
 
-    tableSourceArray = [adminData.users, adminData.organizations, adminData.requests]
+    const {userState} = useAuth()
+    const { user } = userState()
+    const token = user.token
 
-    const tablerows = tableSourceArray[viewMode].map(r => <p>row</p>)
+    useEffect(() => {
+        const fetchAdmin = async () => {
 
+            try {
+                const res = await fetch("http://localhost:3000/api/test", {
+                    method: "Get",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${token}`,
+                    }
+                })
+                
+
+                if (!res.ok) throw new Error("Request failed: " + res.status);
+
+                const data = await res.json();
+
+                setAdminData(data);
+
+        } catch (err) {
+            console.error(err);
+        }
+    };
+
+    fetchAdmin();
+}, []);
+
+    let data = <></>
+
+    if (viewMode == 0 && adminData.users.length != 0) {
+        data = adminData.users.map(d => <tr><td>{d.name}</td><td>{d.email}</td></tr>)
+    }
+
+    let org = <></>
+
+    if(adminData.organizations.length != 0) {
+        org = adminData.organizations.map(o => <OrganizationCard id={o.id} src={o.icon} name={o.name} />)
+    }
     return (
         <div className={styles.container}>
             <div className={styles.menu}>
@@ -18,9 +58,12 @@ export default function Admin() {
                 <p onClick={() => setViewMode(2)}>Requests</p>
             </div>
 
-            <div className={styles.table}>
+            <table className={styles.table}>
+                {data}
+            </table>
+            
+            {org}
 
-            </div>
         </div>
     )
 }
